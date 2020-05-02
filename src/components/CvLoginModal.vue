@@ -1,5 +1,5 @@
 <template>
-    <div v-if="isShowLoginModal" :class="classesAsModal">
+    <div v-if="isShowLoginModal && isDisconnected" :class="classesAsModal">
         <form v-on:submit.prevent="submitLogin" novalidate="novalidate">
             <div class="formInput">
                 <label>
@@ -15,6 +15,9 @@
             </div>
             <button :disabled="disabledSending" type="submit" class="btnAction">Envoyer</button>
         </form>
+    </div>
+    <div v-else>
+        <p class="alreadyConnected">Vous êtes déjà connecté</p>
     </div>
 </template>
 
@@ -34,6 +37,7 @@
         @Action('disconnect', {namespace: 'user'}) disconnect: any;
         @Action('hideLoginModal', { namespace: 'user'}) hideLoginModal: any;
         @Getter('isShowLoginModal', { namespace: 'user'}) isShowLoginModal: any;
+        @Getter('isDisconnected', { namespace: 'user'}) isDisconnected: any;
 
         async submitLogin(){
             try{
@@ -42,7 +46,9 @@
                     const response = await axiosCreatiview.post('/login', {login: this.login, password: this.password});
                     if(response.status == 200){
                         this.connectAsAdmin();
-                        this.hideLoginModal();
+                        if(this.asModal) {
+                            this.hideLoginModal();
+                        }
                     }else{
                         alert('error');
                     }
@@ -130,6 +136,10 @@
         border: none;
         font-size: x-large;
         cursor: pointer;
+    }
+
+    .alreadyConnected{
+        margin-top: 2vh;
     }
 
     @media(min-width: 900px){

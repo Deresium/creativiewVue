@@ -5,6 +5,24 @@
     </div>
 </template>
 
+<script lang="ts">
+    import Vue from "vue";
+    import {Component} from "vue-property-decorator";
+    import CvNavbar from "@/components/CvNavbar.vue";
+    import {Action} from "vuex-class";
+    @Component({
+        components: {CvNavbar}
+    })
+    export default class App extends Vue {
+        @Action('connectAsAdmin', {namespace: 'user'}) connectAsAdmin: any;
+        created(){
+            if(this.$cookies.isKey('payload')){
+                this.connectAsAdmin();
+            }
+        }
+    }
+</script>
+
 <style>
     #app{
         min-height: 100%;
@@ -40,13 +58,3 @@
     }
 
 </style>
-<script>
-    import Vue from "vue";
-    import {Component} from "vue-property-decorator";
-    import CvNavbar from "@/components/CvNavbar";
-    @Component({
-        components: {CvNavbar}
-    })
-    export default class App extends Vue {
-    }
-</script>

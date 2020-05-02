@@ -4,7 +4,7 @@
             <div class="clearDiv">
                 <img @click="clickCloseEvent" src="../assets/icons/clear.svg" alt="icon-clear"/>
             </div>
-            <CvRoutes/>
+            <CvRoutes @click.native="clickCloseEvent"/>
         </div>
     </transition>
 </template>

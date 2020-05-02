@@ -1,6 +1,7 @@
 import Home from "@/views/Home.vue";
 import CvLogin from "@/views/CvLogin.vue";
 import CvGallery from "@/views/CvGallery.vue";
+import CvAddGallery from "@/views/CvAddGallery.vue";
 
 export default [
     {
@@ -17,5 +18,10 @@ export default [
         path: '/gallery',
         name: 'gallery',
         component: CvGallery
+    },
+    {
+        path: '/addGallery',
+        name: 'addGallery',
+        component: CvAddGallery
     }
 ]
