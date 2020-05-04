@@ -3,13 +3,16 @@
         <div v-if="connectedAsAdmin" class="adminAction">
             <router-link to="/addGallery" class="addGallery">Add gallery</router-link>
         </div>
-        <div class="gallery" v-for="gallery in galleries" :key="gallery.galleryID">
-            <div class="infoGallery">
-                <h2>{{gallery.galleryName}}</h2>
-                <section>{{gallery.galleryDescriptionFr}}</section>
-                <button class="btnDiscover">Discover</button>
+        <div class="allGallery">
+            <div class="gallery" v-for="gallery in galleries" :key="gallery.galleryID">
+                <div class="infoGallery">
+                    <h2>{{gallery.galleryName}}</h2>
+                    <section v-if="isFrench" class="description">{{gallery.galleryDescriptionFr}}</section>
+                    <section v-else class="description">{{gallery.galleryDescriptionEn}}</section>
+                    <router-link :to="`/gallery/${gallery.galleryName.replace(' ', '.')}`" class="btnDiscover">{{ $t("galleryMessage.discover") }}</router-link>
+                </div>
+                <img class="imgGallery" :src="gallery.galleryUrlPictures[0]" alt="main image gallery"/>
             </div>
-            <img class="imgGallery" :src="gallery.galleryUrlPictures[0]" alt="main image gallery"/>
         </div>
     </div>
 </template>
@@ -37,6 +40,10 @@
                 console.error(error);
             }
         }
+
+        get isFrench(){
+            return this.$i18n.locale === 'fr';
+        }
     }
 </script>
 
@@ -58,10 +65,11 @@
         display: flex;
         margin-top: 2vh;
         margin-bottom: 2vh;
+        height: 20vh;
     }
 
     .infoGallery{
-        width: 50%;
+        width: 60%;
         background-color: #FFA41B;
         font-weight: 300;
     }
@@ -69,6 +77,7 @@
     .infoGallery h2{
         font-weight: 300;
         text-align: center;
+        margin-top: 0.5vh;
     }
 
     .infoGallery section{
@@ -76,15 +85,47 @@
     }
 
     .btnDiscover{
+        display: inline-block;
         border: none;
         color: white;
         background-color: #005082;
         padding: 1vh 5%;
         font-size: large;
         margin-left: 3%;
+        text-decoration: none;
     }
 
     .imgGallery{
-        width: 50%;
+        object-fit: cover;
+        background-color: #FFA41B;
+        width: 40%;
+    }
+
+    .description{
+        height: 40%;
+        overflow-y: hidden;
+        font-size: smaller;
+    }
+
+    @media(min-width: 900px) {
+        .allGallery{
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .gallery{
+            height: 20vh;
+            width: 45%;
+        }
+
+        .infoGallery{
+            width: 60%;
+        }
+
+        .description{
+            height: 55%;
+        }
+
     }
 </style>

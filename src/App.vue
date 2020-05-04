@@ -1,7 +1,10 @@
 <template>
     <div id="app">
-        <CvNavbar/>
-        <router-view/>
+        <div class="exceptFooter">
+            <CvNavbar/>
+            <router-view/>
+        </div>
+        <CvFooter/>
     </div>
 </template>
 
@@ -10,8 +13,9 @@
     import {Component} from "vue-property-decorator";
     import CvNavbar from "@/components/CvNavbar.vue";
     import {Action} from "vuex-class";
+    import CvFooter from "@/components/CvFooter.vue";
     @Component({
-        components: {CvNavbar}
+        components: {CvFooter, CvNavbar}
     })
     export default class App extends Vue {
         @Action('connectAsAdmin', {namespace: 'user'}) connectAsAdmin: any;
@@ -48,12 +52,16 @@
     }
 
     @media (min-width: 900px) {
-        .phone{
+        .phone {
             display: none;
         }
 
-        .desktop{
+        .desktop {
             display: block;
+        }
+
+        .exceptFooter{
+            min-height: 90vh;
         }
     }
 
