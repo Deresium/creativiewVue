@@ -3,6 +3,7 @@ import CvLogin from "@/views/CvLogin.vue";
 import CvGallery from "@/views/CvGallery.vue";
 import CvAddGallery from "@/views/CvAddGallery.vue";
 import CvDetailGallery from "@/views/CvDetailGallery.vue";
+import CvAskingOriginal from "@/views/CvAskingOriginal.vue";
 
 export default [
     {
@@ -29,5 +30,10 @@ export default [
         path: '/gallery/:galleryName',
         name: 'detailGallery',
         component: CvDetailGallery
+    },
+    {
+        path: '/askingOriginal/:idPhoto',
+        name: 'askingOriginal',
+        component: CvAskingOriginal
     }
 ]

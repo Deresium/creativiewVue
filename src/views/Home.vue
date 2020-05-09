@@ -3,7 +3,7 @@
         <div class="content">
             <CvTextSlogant class="svgLogo"/>
             <div class="mainActions">
-                <router-link to="/">Visit Gallery</router-link>
+                <router-link to="/gallery">Visit Gallery</router-link>
                 <router-link to="/">Need a website?</router-link>
             </div>
         </div>

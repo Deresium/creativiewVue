@@ -3,16 +3,20 @@
         <div class="title">
             <img @click="goToGallery" src="../assets/icons/arrow.svg" alt="arrow svg"/>
             <h1>{{ $route.params.galleryName.replace('.', ' ')}}</h1>
+            <CvFacebookShare :album-u-r-l="routeGallery"/>
         </div>
         <div class="photoList">
             <img
-                    v-for="photo in listUrls"
+                    v-for="photo in listPhotos"
                     :key="photo.photoId"
                     :class="fullSized(photo)"
-                    @click="pickFullSizeImg(photo)"
+                    class="imgGallery"
+                    @click="pickFullSizeImg(photo, $event)"
                     :src="photo.photoUrl"
                     alt="image gallery"
             />
+            <img @click="closingFullSize" :class="showClear" src="../assets/icons/clear.svg" alt="clear icon"/>
+            <router-link :class="askingOriginal" :to=routeOriginal>{{ $t("galleryMessage.askingOriginalQuality") }}</router-link>
         </div>
     </div>
 </template>
@@ -21,17 +25,20 @@
     import { Component, Vue } from 'vue-property-decorator';
     import axiosCreatiview from "@/axios/axiosCreatiview";
     import Photo from '@/models/Photo';
-
-    @Component
+    import CvFacebookShare from "@/components/CvFacebookShare.vue";
+    @Component({
+        components: {CvFacebookShare}
+    })
     export default class CvDetailGallery extends Vue {
-        listUrls: Photo[] = [];
+        listPhotos: Photo[] = [];
         fullSizedImage: Photo | null = null;
+        showExtraMenu = true;
 
         async created(){
             const response = await axiosCreatiview.get(`/gallery/${ this.$route.params.galleryName}`);
             console.log(response.data);
             for(const picture of response.data){
-                this.listUrls.push(new Photo(picture._id,`${process.env.VUE_APP_URL_CREATIVIEW}/pictures/${picture._id}`));
+                this.listPhotos.push(new Photo(picture._id,`${process.env.VUE_APP_URL_CREATIVIEW}/pictures/${picture._id}`));
             }
         }
 
@@ -39,17 +46,51 @@
             this.$router.push('/gallery');
         }
 
-        pickFullSizeImg(photo: Photo){
-            if(this.fullSizedImage && this.fullSizedImage.photoId === photo.photoId)
-                this.fullSizedImage = null;
-            else
+        pickFullSizeImg(photo: Photo, event: MouseEvent){
+            if(this.fullSizedImage && this.fullSizedImage.photoId === photo.photoId){
+                const divideWith = window.innerWidth / 3;
+                const indexOfPhoto = this.listPhotos.indexOf(photo);
+                if(event.clientX < divideWith && indexOfPhoto !== 0)
+                    this.fullSizedImage = this.listPhotos[indexOfPhoto - 1];
+                else if(event.clientX > divideWith*2 && indexOfPhoto < this.listPhotos.length -1)
+                    this.fullSizedImage = this.listPhotos[indexOfPhoto + 1];
+                else if(event.clientX >= divideWith && event.clientX <= divideWith * 2)
+                    this.showExtraMenu = !this.showExtraMenu;
+            }else {
                 this.fullSizedImage = photo;
+            }
         }
 
         fullSized(photo: Photo){
             return {
                 'fullSized': this.fullSizedImage && photo.photoId === this.fullSizedImage.photoId
             }
+        }
+
+        get askingOriginal(){
+            return {
+                'showOriginal': this.fullSizedImage != null && this.showExtraMenu,
+                'hideOriginal': this.fullSizedImage == null
+            }
+        }
+
+        get showClear(){
+            return{
+                'showClear': this.fullSizedImage != null && this.showExtraMenu,
+                'hideClear': this.fullSizedImage == null
+            }
+        }
+
+        closingFullSize(){
+            this.fullSizedImage = null;
+        }
+
+        get routeOriginal(){
+            return `/askingOriginal/${this.fullSizedImage?.photoId}`;
+        }
+
+        get routeGallery(){
+            return `${process.env.VUE_APP_URL_CREATIVIEW_VUE}/gallery/${this.$route.params.galleryName}`
         }
     }
 </script>
@@ -65,9 +106,45 @@
         align-items: center;
     }
 
+    .showClear{
+        position: fixed;
+        top: 3vh;
+        left: 79vw;
+        display: block;
+        width: 20vw;
+        z-index: 6;
+        cursor: pointer;
+    }
+
+    .hideClear{
+        display: none;
+    }
+
+    .showOriginal{
+        position: fixed;
+        display: block;
+        top: 6vh;
+        left: 2vw;
+        background-color: #005082;
+        color: white;
+        padding: 1vh 2vw;
+        z-index: 6;
+        text-decoration: none;
+        border-radius: 25px;
+        font-weight: 300;
+    }
+
+    .hideOriginal{
+        display: none;
+    }
+
     .title img{
         width: 10%;
         cursor: pointer;
+    }
+
+    .title h1{
+        margin-right: 2%;
     }
 
     .photoList{
@@ -77,15 +154,15 @@
         flex-wrap: wrap;
     }
 
-    .photoList img{
+    .photoList .imgGallery{
         width: 49%;
         object-fit: cover;
         margin-bottom: 1vh;
+        height: 20vh;
         cursor: pointer;
-        max-height: 20vh;
     }
 
-    .photoList img.fullSized{
+    .photoList .imgGallery.fullSized{
         width: 100%;
         height: 100vh;
         position: fixed;
@@ -95,13 +172,27 @@
         z-index: 5;
         max-height: 100vh;
         object-fit: contain;
+        cursor: initial;
+    }
+
+    @media(max-width: 900px) and (orientation: landscape){
+        .showClear{
+            width: 7vw;
+            left: 92vw;
+            top: 1vh;
+        }
+
+        .showOriginal{
+            left: 1vw;
+            word-break: break-all;
+        }
     }
 
     @media(min-width: 900px){
-        .photoList img{
+        .photoList .imgGallery{
             width: 33%;
             margin-bottom: 0.5vh;
-            max-height: 40vh;
+            height: 30vh;
         }
 
         .photoList{
@@ -110,6 +201,18 @@
 
         .title img{
             width: 5%;
+        }
+
+        .showClear{
+            top: 0;
+            left: 94vw;
+            width: 5vw;
+            height: 5vh;
+            opacity: 0.9;
+        }
+
+        .showOriginal{
+            top: 1vh;
         }
     }
 </style>
