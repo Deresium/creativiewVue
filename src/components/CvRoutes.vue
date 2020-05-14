@@ -8,9 +8,8 @@
             <div class="otherMenu">
                 <router-link to="/">Home</router-link>
                 <router-link to="/gallery">Gallery</router-link>
-                <router-link to="/">Need a website?</router-link>
-                <router-link to="/">About me</router-link>
-                <router-link to="/">Contact</router-link>
+                <router-link to="/needWebsite">Need a website?</router-link>
+                <router-link to="/contact">Contact</router-link>
             </div>
         </div>
     </div>

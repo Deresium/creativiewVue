@@ -39,7 +39,7 @@
         }
 
         submitDonation(){
-            console.log('test');
+            return;
         }
     }
 </script>

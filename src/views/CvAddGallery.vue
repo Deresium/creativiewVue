@@ -45,9 +45,9 @@
         @Action('showLoginModal', { namespace: 'user'}) showLoginModal: any;
 
         listFiles: any[] = [];
-        galleryName = null;
-        descriptionFr = null;
-        descriptionEn = null;
+        galleryName: string|null = null;
+        descriptionFr: string|null = null;
+        descriptionEn: string|null = null;
         disableSending = false;
 
         async postGallery(){
@@ -57,10 +57,12 @@
                 this.listFiles.forEach(file => {
                     formData.append(`photo`, file, file.name);
                 })
-                formData.append('descriptionFr', this.descriptionFr!);
-                formData.append('descriptionEn', this.descriptionEn!);
-                formData.append('galleryName', this.galleryName!);
-                const response = await axiosCreatiview.post('/gallery', formData, {
+                if(this.descriptionFr && this.descriptionEn && this.galleryName) {
+                    formData.append('descriptionFr', this.descriptionFr);
+                    formData.append('descriptionEn', this.descriptionEn);
+                    formData.append('galleryName', this.galleryName);
+                }
+                await axiosCreatiview.post('/gallery', formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data'
                     }
@@ -69,7 +71,6 @@
                 if(error.response.status === 401){
                     this.showLoginModal();
                 }
-                console.log(error);
             }finally{
                 this.disableSending = false;
             }

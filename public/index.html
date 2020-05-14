@@ -7,6 +7,17 @@
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId            : '1291512967905124',
+          autoLogAppEvents : true,
+          xfbml            : true,
+          version          : 'v7.0'
+        });
+      };
+    </script>
+    <script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
     <title>Creatiview</title>
   </head>
   <body>

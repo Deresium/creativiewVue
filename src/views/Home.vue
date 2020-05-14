@@ -4,7 +4,7 @@
             <CvTextSlogant class="svgLogo"/>
             <div class="mainActions">
                 <router-link to="/gallery">Visit Gallery</router-link>
-                <router-link to="/">Need a website?</router-link>
+                <router-link to="/needWebsite">Need a website?</router-link>
             </div>
         </div>
         <div class="background">

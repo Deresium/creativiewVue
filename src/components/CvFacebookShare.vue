@@ -1,5 +1,5 @@
 <template>
-    <button>
+    <button @click="fbSharing">
         <img src="../assets/fb_icon.png" alt="facebook icon"/>
         <span>Share</span>
     </button>
@@ -11,6 +11,16 @@
     @Component
     export default class CvFacebookShare extends Vue {
         @Prop() albumURL!: string;
+
+        fbSharing(){
+            // @ts-ignore
+            FB.ui({
+                method: 'share',
+                href: this.albumURL
+            }, function(response: any){
+
+            });
+        }
     }
 </script>
 

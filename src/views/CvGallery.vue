@@ -1,5 +1,6 @@
 <template>
     <div class="mainPage">
+        <h1>Gallery</h1>
         <div v-if="connectedAsAdmin" class="adminAction">
             <router-link to="/addGallery" class="addGallery">Add gallery</router-link>
         </div>
@@ -48,6 +49,12 @@
 </script>
 
 <style scoped>
+    h1{
+        color: #005082;
+        font-weight: normal;
+        margin-top: 2vh;
+        border-bottom: solid 5px #FFA41B;
+    }
     .adminAction{
         display: flex;
         margin-top: 2vh;
@@ -65,11 +72,12 @@
         display: flex;
         margin-top: 2vh;
         margin-bottom: 2vh;
-        height: 20vh;
+        height: 30vh;
     }
 
     .infoGallery{
         width: 60%;
+        height: 100%;
         background-color: #FFA41B;
         font-weight: 300;
     }
@@ -102,7 +110,7 @@
     }
 
     .description{
-        height: 40%;
+        height: 55%;
         overflow-y: hidden;
         font-size: smaller;
     }

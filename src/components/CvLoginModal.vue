@@ -16,9 +16,6 @@
             <button :disabled="disabledSending" type="submit" class="btnAction">Envoyer</button>
         </form>
     </div>
-    <div v-else>
-        <p class="alreadyConnected">Vous êtes déjà connecté</p>
-    </div>
 </template>
 
 <script lang="ts">
@@ -59,7 +56,6 @@
                 if(error.response.status == 401){
                     this.disconnect();
                 }
-                console.log(error);
             }finally{
                 this.disabledSending = false;
             }

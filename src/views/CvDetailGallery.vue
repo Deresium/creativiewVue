@@ -17,7 +17,12 @@
             />
             <img @click="closingFullSize" :class="showClear" src="../assets/icons/clear.svg" alt="clear icon"/>
             <router-link :class="askingOriginal" :to=routeOriginal>{{ $t("galleryMessage.askingOriginalQuality") }}</router-link>
+            <label v-if="connectedAsAdmin" class="addPicture">
+                <span>Add Picture</span>
+                <input type="file" @change="addNewPicture"/>
+            </label>
         </div>
+        <CvLoginModal as-modal="true"/>
     </div>
 </template>
 
@@ -26,17 +31,26 @@
     import axiosCreatiview from "@/axios/axiosCreatiview";
     import Photo from '@/models/Photo';
     import CvFacebookShare from "@/components/CvFacebookShare.vue";
+    import {Action, Getter} from "vuex-class";
+    import CvLoginModal from "@/components/CvLoginModal.vue";
     @Component({
-        components: {CvFacebookShare}
+        components: {CvLoginModal, CvFacebookShare}
     })
     export default class CvDetailGallery extends Vue {
+        @Action('showLoginModal', { namespace: 'user'}) showLoginModal: any;
+        @Getter('isConnectedAsAdmin', { namespace: 'user'}) connectedAsAdmin!: boolean;
+
         listPhotos: Photo[] = [];
         fullSizedImage: Photo | null = null;
         showExtraMenu = true;
 
         async created(){
+            await this.loadGallery();
+        }
+
+        async loadGallery(){
             const response = await axiosCreatiview.get(`/gallery/${ this.$route.params.galleryName}`);
-            console.log(response.data);
+            this.listPhotos = [];
             for(const picture of response.data){
                 this.listPhotos.push(new Photo(picture._id,`${process.env.VUE_APP_URL_CREATIVIEW}/pictures/${picture._id}`));
             }
@@ -92,6 +106,26 @@
         get routeGallery(){
             return `${process.env.VUE_APP_URL_CREATIVIEW_VUE}/gallery/${this.$route.params.galleryName}`
         }
+
+        async addNewPicture(event: any){
+            const newPicture = event.target.files[0];
+            if(newPicture) {
+                const formData = new FormData();
+                formData.append(`photo`, newPicture, newPicture.name);
+                try {
+                    await axiosCreatiview.post(`/gallery/addPicture/${this.$route.params.galleryName}`, formData, {
+                        headers: {
+                            'Content-Type': 'multipart/form-data'
+                        }
+                    });
+                    await this.loadGallery();
+                } catch (error) {
+                    if (error.response.status === 401) {
+                        this.showLoginModal();
+                    }
+                }
+            }
+        }
     }
 </script>
 
@@ -145,6 +179,7 @@
 
     .title h1{
         margin-right: 2%;
+        font-weight: normal;
     }
 
     .photoList{
@@ -175,6 +210,22 @@
         cursor: initial;
     }
 
+    input[type="file"]{
+        display: none;
+    }
+
+    .addPicture{
+        width: 33%;
+        height: 30vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: solid 2px #005082;
+        box-sizing: border-box;
+        color: #005082;
+        cursor: pointer;
+    }
+
     @media(max-width: 900px) and (orientation: landscape){
         .showClear{
             width: 7vw;
@@ -200,7 +251,7 @@
         }
 
         .title img{
-            width: 5%;
+            width: 3%;
         }
 
         .showClear{
