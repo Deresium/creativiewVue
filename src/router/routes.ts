@@ -6,6 +6,8 @@ import CvDetailGallery from "@/views/CvDetailGallery.vue";
 import CvAskingOriginal from "@/views/CvAskingOriginal.vue";
 import CvNeedWebsite from "@/views/CvNeedWebsite.vue";
 import CvContact from "@/views/CvContact.vue";
+import CvTermsOfUse from "@/views/CvTermsOfUse.vue";
+import CvAboutMe from "@/views/CvAboutMe.vue";
 
 export default [
     {
@@ -70,6 +72,22 @@ export default [
         component: CvContact,
         meta: {
             title: 'Contact - Creatiview'
+        }
+    },
+    {
+        path: '/termsOfUse',
+        name: 'Terms of use',
+        component: CvTermsOfUse,
+        meta: {
+            title: 'Terms of use - Creatiview'
+        }
+    },
+    {
+        path: '/aboutMe',
+        name: 'About Me',
+        component: CvAboutMe,
+        meta: {
+            title: 'About Me - Creatiview'
         }
     }
 ]

@@ -6,19 +6,18 @@
             <section>
                 <p>{{ $t("galleryMessage.p1AskingOriginal") }}</p>
                 <p>{{ $t("galleryMessage.p2AskingOriginal") }}</p>
-                <p>{{ $t("galleryMessage.p3AskingOriginal") }}</p>
-                <p class="biggerGap">{{ $t("galleryMessage.p4AskingOriginal") }}
-                    <router-link class="contactLink" to="/contact">{{ $t("galleryMessage.p4bisAskingOriginal") }}</router-link>
+                <p class="biggerGap">
+                    {{ $t("galleryMessage.p3AskingOriginal") }}
+                    <router-link class="contactLink" to="/contact">{{ $t("galleryMessage.p3bisAskingOriginal") }}</router-link>
+                    {{ $t("galleryMessage.p3bis2AskingOriginal") }}
+                    <router-link class="contactLink" to="/termsOfUse">{{ $t("galleryMessage.p3bis3AskingOriginal")}}</router-link>
                 </p>
-                <p>{{ $t("galleryMessage.p5AskingOriginal") }} 😄</p>
-                <form class="formDonate" v-on:submit.prevent="submitDonation" novalidate="novalidate">
-                    <label class="labelAmount">
-                        <span>{{ $t("galleryMessage.amount")}}</span>
-                        <input type="number" v-model="donationAmount"/>
-                    </label>
-                    <span class="euro">€</span>
-                    <button type="submit" class="donateLink">{{ $t("galleryMessage.buttonAskingOriginal")}}</button>
-                </form>
+                <p>{{ $t("galleryMessage.p4AskingOriginal") }} 😄</p>
+                <p>
+                    {{ $t("galleryMessage.p5") }}
+                    <span class="account">{{ $t("galleryMessage.p5Account") }}</span>
+                </p>
+                <CvDonateForm :photo-id="$route.params.idPhoto"/>
                 <p>
 
                 </p>
@@ -29,17 +28,15 @@
 
 <script lang="ts">
     import { Component, Vue } from 'vue-property-decorator';
-
-    @Component
+    import CvDonateForm from "@/components/CvDonateForm.vue";
+    @Component({
+        components: {CvDonateForm}
+    })
     export default class CvAskingOriginal extends Vue {
-        donationAmount = null;
+
 
         get srcImg(){
             return `${process.env.VUE_APP_URL_CREATIVIEW}/pictures/${this.$route.params.idPhoto}`;
-        }
-
-        submitDonation(){
-            return;
         }
     }
 </script>
@@ -71,57 +68,15 @@
         margin-bottom: 1.5vh;
     }
 
-    .donateLink{
-        cursor: pointer;
-        font-size: large;
-        background-color: #005082;
-        color: white;
-        padding: 1vh 5%;
-        border: none;
-        text-decoration: none;
-        margin-top: 2vh;
-    }
-
     .donate img{
         width: 100%;
         margin-bottom: 2vh;
     }
 
-    .labelAmount{
-        margin-top: 2vh;
-        display: flex;
-        flex-direction: column;
+    .account{
+        display: block;
         color: #005082;
-        width: 30%;
-        margin-right: 1%;
-    }
-
-    .euro{
-        margin-right: 5%;
-        font-size: xx-large;
-        color: #005082;
-    }
-
-    input[type="number"]{
-        border: solid 1px #005082;
-        width: 97%;
-        font-size: large;
-        padding-top: 1vh;
-        padding-bottom: 1vh;
-        padding-left: 3%;
-        -moz-appearance: textfield;
-    }
-
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
-
-    .formDonate{
-        display: flex;
-        align-items: flex-end;
-        margin-bottom: 2vh;
+        font-weight: bolder;
     }
 
     @media(min-width: 900px){
@@ -131,14 +86,11 @@
 
         .donate img{
             width: 40%;
+            align-self: start;
         }
 
         .donate section{
             width: 55%;
-        }
-
-        .euro{
-            font-size: 42px;
         }
     }
 </style>

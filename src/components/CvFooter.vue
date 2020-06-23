@@ -12,13 +12,12 @@
         <section>
             <h2>Explore</h2>
             <router-link to="/gallery">Gallery</router-link>
-            <router-link to="/">Need a website?</router-link>
+            <router-link to="/needWebsite">Need a website?</router-link>
             <router-link to="/aboutMe">About Me</router-link>
         </section>
         <section>
             <h2>Legal</h2>
-            <router-link to="/">Terms of Use</router-link>
-            <router-link to="/">Privacy Policy</router-link>
+            <router-link to="/termsOfUse">Conditions générales</router-link>
         </section>
         <section>
             <h2>Language</h2>
@@ -47,10 +46,12 @@
 
         frLang(){
             this.$i18n.locale = 'fr';
+            this.$cookies.set('lang', 'fr');
         }
 
         enLang(){
             this.$i18n.locale = 'en';
+            this.$cookies.set('lang', 'en');
         }
     }
 </script>
@@ -96,6 +97,7 @@
     @media(min-width: 900px){
         footer{
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             align-items: baseline;
             padding-left: 5%;

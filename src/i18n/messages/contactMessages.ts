@@ -1,20 +1,20 @@
 export default {
     fr: {
         contactMessages: {
-            name: 'nom',
+            name: 'Nom',
             errorName:{
                 empty: 'Le nom est requis'
             },
-            firstName: 'prénom',
+            firstName: 'Prénom',
             errorFirstName: {
                 empty: 'Le prénom est requis'
             },
-            email: 'email',
+            email: 'Email',
             errorEmail: {
                 empty: 'L\'email est requis',
                 notValid: 'L\'email n\'est pas valide (doit contenir "@")'
             },
-            message: 'message',
+            message: 'Message',
             errorMessage: {
                 empty: 'Le message est requis'
             },
@@ -24,20 +24,20 @@ export default {
     },
     en: {
         contactMessages: {
-            name: 'name',
+            name: 'Name',
             errorName:{
                 empty: 'Name is required'
             },
-            firstName: 'first name',
+            firstName: 'First name',
             errorFirstName: {
                 empty: 'First name is required'
             },
-            email: 'email',
+            email: 'Email',
             errorEmail: {
                 empty: 'Email is required',
                 notValid: 'Email is not valid (must contains "@")'
             },
-            message: 'message',
+            message: 'Message',
             errorMessage: {
                 empty: 'Message is required'
             },

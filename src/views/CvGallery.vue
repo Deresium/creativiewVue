@@ -110,8 +110,6 @@
     }
 
     .description{
-        height: 55%;
-        overflow-y: hidden;
         font-size: smaller;
     }
 
@@ -123,17 +121,12 @@
         }
 
         .gallery{
-            height: 20vh;
+            height: 30vh;
             width: 45%;
         }
 
         .infoGallery{
             width: 60%;
         }
-
-        .description{
-            height: 55%;
-        }
-
     }
 </style>

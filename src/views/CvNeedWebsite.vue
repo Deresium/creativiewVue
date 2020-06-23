@@ -156,7 +156,11 @@
         }
 
         .card h4{
-            height: 4vh;
+            height: 10vh;
+        }
+
+        .process .card h4{
+            height: 5vh;
         }
 
         h3{

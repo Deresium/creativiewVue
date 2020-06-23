@@ -9,6 +9,7 @@
                 <router-link to="/">Home</router-link>
                 <router-link to="/gallery">Gallery</router-link>
                 <router-link to="/needWebsite">Need a website?</router-link>
+                <router-link to="/aboutMe">About Me</router-link>
                 <router-link to="/contact">Contact</router-link>
             </div>
         </div>

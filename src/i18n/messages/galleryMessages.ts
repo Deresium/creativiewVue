@@ -5,15 +5,24 @@ export default {
             askingOriginalQuality: 'Qualité d\'origine',
             titleAskingOriginal: 'Demande de qualité d\'origine',
             p1AskingOriginal: 'Pour des raisons de place et de performances, je n\'affiche pas les photos dans la meilleure qualité.',
-            p2AskingOriginal: 'Si vous souhaitez profiter de l\'image en qualité optimal au format PNG, laissez-moi votre e-mail et je vous l\'enverrai.',
-            p3AskingOriginal: 'Je vous authorise à utiliser mes images sur votre propre site web (une rérérence vers l\'auteur fait toujours plaisir), à les partagées, ' +
-                'à les afficher chez vous, ... mais vous n\'avez pas le droit de les revendre en votre nom ni de les utilisées à des fins publicitaires (t-shirts, flyers, ...).',
-            p4AskingOriginal: 'Si vous avez la moindre question ou si vous souhaitez acquérir les droits sur une de mes photos, n\'hésitez pas à ',
-            p4bisAskingOriginal: 'me contacter',
-            p5AskingOriginal: 'Je suis photographe amateur et je ne touche aucun revenus pour mon travail. J\'aime énormément m\'exprimer au travers de cet art et je souhaite pouvoir le faire avec ' +
+            p2AskingOriginal: 'Si vous souhaitez profiter de l\'image en qualité optimal au format TIFF, laissez-moi votre nom et e-mail et je vous l\'enverrai.',
+            p3AskingOriginal: 'Si vous avez la moindre question ou si vous souhaitez acquérir les droits sur une de mes photos, n\'hésitez pas à ',
+            p3bisAskingOriginal: 'me contacter',
+            p3bis2AskingOriginal: ' ou vous rendre dans les ',
+            p3bis3AskingOriginal: 'termes d\'utilisation',
+            p4AskingOriginal: 'Je suis photographe amateur et je ne touche aucun revenus pour mon travail. J\'aime énormément m\'exprimer au travers de cet art et je souhaite pouvoir le faire avec ' +
                 ' le meilleur matériel possible. Si vous le souhaitez, je vous invite donc à verser une donation afin de m\'aider à acquérir du nouveau matériel.',
-            buttonAskingOriginal: 'Donation',
-            amount: 'Montant'
+            p5: 'Si vous ne possédez pas Bancontact, vous pouvez aussi directement faire un versement sur le compte ',
+            p5Account: 'BE67 0015 5076 7187',
+            p5end: '.',
+            buttonAskingOriginalWithoutDonation: 'Demande sans donation',
+            buttonAskingOriginalWithDonation: 'Demande avec donation',
+            amount: 'Montant',
+            name: 'Nom et prénom',
+            supportMe: 'Me supporter',
+            successDonation: 'Merci pour votre soutien. Vous recevrez un premier mail avec la confirmation de votre payement et par après un second avec la photo.',
+            completeForm: 'Merci de compléter l\'ensemble du formulaire avant de faire la demande',
+            successAsking: 'Merci pour l\'intérêt que vous portez à mon travail. Je vous envoie la photo dès que possible. 😉'
         }
     },
     en: {
@@ -22,15 +31,24 @@ export default {
             askingOriginalQuality: 'Original quality',
             titleAskingOriginal: 'Asking for original quality',
             p1AskingOriginal: 'For space and performance reasons, I don\'t display pictures in best quality.',
-            p2AskingOriginal: 'If you want to enjoy the picture in the best quality in PNG format, let me your email and I will send it to you.',
-            p3AskingOriginal: 'I authorize you to use my pictures on your own website (a reference to the author is appreciated), to share it, to display it at home, ...' +
-                ' but you don\'t have the right to resell it in your name or to use it for advertising purposes (t-shirts, flyers, ...).',
-            p4AskingOriginal: 'If you have any question or if you want to purchase the rights for one of my pictures, don\'t hesitate to ',
-            p4bisAskingOriginal: 'contact me',
-            p5AskingOriginal: 'I am a amateur photographer and I earn nothing for this work. I love to express myself throught this art ans I would like to do it with '+
+            p2AskingOriginal: 'If you want to enjoy the picture in the best quality in TIFF format, let me your name and email and I will send it to you.',
+            p3AskingOriginal: 'If you have any question or if you want to purchase the rights for one of my pictures, don\'t hesitate to ',
+            p3bisAskingOriginal: 'contact me',
+            p3bis2AskingOriginal: ' or to check the ',
+            p3bis3AskingOriginal: 'Terms of use',
+            p4AskingOriginal: 'I am a amateur photographer and I earn nothing for this work. I love to express myself throught this art ans I would like to do it with '+
                 ' the best equipment. If you wish to, I invite you to make a donation to help me to get new stuff.',
-            buttonAskingOriginal: 'Donation',
-            amount: 'Amount'
+            p5: 'If you don\'t have Bancontact you can make a direct payment to ',
+            p5Account: 'BE67 0015 5076 7187',
+            p5end: '.',
+            buttonAskingOriginalWithoutDonation: 'Request without donation',
+            buttonAskingOriginalWithDonation: 'Request with donation',
+            amount: 'Amount',
+            name: 'Name and firstname',
+            supportMe: 'Support me',
+            successDonation: 'Thank you for your support. You will receive a first mail with your payment confirmation and a second one with the picture.',
+            completeForm: 'Please complete the entire form before asking for the picture.',
+            successAsking: 'Thank you for your interest in my work. I will send you the picture as soon as possible. 😉'
         }
     }
 }

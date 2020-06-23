@@ -23,6 +23,10 @@
             if(this.$cookies.isKey('payload')){
                 this.connectAsAdmin();
             }
+
+            if(this.$cookies.isKey('lang')){
+                this.$i18n.locale = this.$cookies.get('lang');
+            }
         }
     }
 </script>
@@ -30,7 +34,7 @@
 <style>
     #app{
         min-height: 100%;
-        width: 100vw;
+        width: 100%;
     }
 
     *{

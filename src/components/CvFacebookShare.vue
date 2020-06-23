@@ -14,11 +14,10 @@
 
         fbSharing(){
             // @ts-ignore
+            // eslint-disable-next-line no-undef
             FB.ui({
                 method: 'share',
                 href: this.albumURL
-            }, function(response: any){
-
             });
         }
     }
