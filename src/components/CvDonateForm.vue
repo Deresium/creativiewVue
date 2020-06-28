@@ -31,7 +31,6 @@
     import {Component, Vue, Prop} from 'vue-property-decorator';
     import {loadStripe} from "@stripe/stripe-js";
     import axiosCreatiview from "@/axios/axiosCreatiview";
-    //import io from "socket.io-client"
 
     @Component
     export default class CvDonateForm extends Vue{
@@ -50,54 +49,6 @@
                     alert(this.$t('galleryMessage.successDonation'));
             }
         }
-
-        /*async attemptToCharge(){
-            const stripe = await loadStripe(process.env.VUE_APP_PK_STRIPE);
-            if(stripe && this.clientSecret && this.clientSource) {
-                try {
-                    const {source} = await stripe.retrieveSource({
-                        id: this.clientSource,
-                        // eslint-disable-next-line @typescript-eslint/camelcase
-                        client_secret: this.clientSecret
-                    });
-                    if (source) {
-                        if (source.status === 'chargeable') {
-                            const response = await axiosCreatiview.post('/chargeTransaction', {clientId: this.$route.query.source});
-                            alert(`Merci beaucoup pour votre don de ${response.data.amount}€!`);
-                        } else if (source.status === 'pending' && this.attempt < this.MAX_ATTEMPT) {
-                            this.attempt++;
-                            setTimeout(this.attemptToCharge, 1000);
-                        }
-                    }
-                }catch(error){
-                    if(error.response.status === 500){
-                        alert('Une erreur est survenue');
-                    }
-                }
-            }
-        }*/
-
-        /*async checkSuccess(){
-            const stripe = await loadStripe(process.env.VUE_APP_PK_STRIPE);
-            if(stripe && this.clientSource && this.clientSecret) {
-                // eslint-disable-next-line @typescript-eslint/camelcase
-                const {source} = await stripe.retrieveSource({id: this.clientSource, client_secret: this.clientSecret});
-                if (source) {
-                    if (source.status === 'succeeded') {
-                        alert(`Merci beaucoup pour votre don de ${this.donationAmount}€!`);
-                    }else{
-                        setTimeout(this.checkSuccess, 1000);
-                    }
-                }
-            }
-        }*/
-
-        /*created(){
-            const socket = io.connect(`${process.env.VUE_APP_URL_CREATIVIEW}/webhook`);
-            socket.on("successPayment", (data: any) => {
-                console.log(data);
-            });
-        }*/
 
         get amountWithoutComa(){
             if(this.donationAmount)
@@ -162,7 +113,7 @@
                         window.location.replace(response.source.redirect!.url);
                     }
                 }catch (e) {
-                    console.log(e);
+                    //console.log(e);
                 }
             }else
                 alert(this.$t('galleryMessage.completeForm'));
@@ -286,7 +237,7 @@
     }
 
     .checkmark:after{
-        content:"\1F5F8";
+        content: url(../assets/icons/done.svg);
         font-weight: bold;
         font-size: x-large;
         display: none;
