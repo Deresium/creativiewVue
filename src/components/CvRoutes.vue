@@ -7,9 +7,9 @@
             </div>-->
             <div class="otherMenu">
                 <router-link to="/">Home</router-link>
-                <router-link to="/gallery">Gallery</router-link>
-                <router-link to="/needWebsite">Need a website?</router-link>
-                <router-link to="/aboutMe">About Me</router-link>
+                <router-link to="/gallery">{{ $t('homeMessage.gallery') }}</router-link>
+                <router-link to="/needWebsite">{{ $t('homeMessage.needAWebsite') }}</router-link>
+                <router-link to="/aboutMe">{{ $t('homeMessage.aboutMe') }}</router-link>
                 <router-link to="/contact">Contact</router-link>
             </div>
         </div>

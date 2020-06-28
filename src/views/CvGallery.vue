@@ -38,7 +38,7 @@
                     this.galleries.push(gallery);
                 }
             }catch(error) {
-                console.error(error);
+                //console.error(error);
             }
         }
 

@@ -1,5 +1,5 @@
 module.exports = {
-    //outputDir: '../creativiewNode/public'
+    outputDir: '../creativiewNode/public',
     devServer: {
         host: 'localhost'
     }

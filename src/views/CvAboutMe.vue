@@ -17,6 +17,12 @@
                     <router-link to="/contact">{{ $t("aboutMeMessages.pcontact2") }}</router-link>
                     {{ $t("aboutMeMessages.p5end") }}
                 </p>
+                <p>{{ $t("aboutMeMessages.p6") }}</p>
+                <p>
+                    {{ $t("aboutMeMessages.p7") }}
+                    <router-link to="/contact">{{ $t("aboutMeMessages.p7contact") }}</router-link>
+                    {{ $t("aboutMeMessages.p7end") }}
+                </p>
             </section>
             <img src="../assets/aboutMe.jpg" alt="img of me"/>
         </div>

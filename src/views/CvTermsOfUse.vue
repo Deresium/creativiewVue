@@ -1,33 +1,32 @@
 <template>
     <div class="mainPage">
-        <h1>Conditions générales</h1>
+        <h1>{{ $t('termsOfUseMessage.termsAndCondition') }}</h1>
         <div>
             <section>
-                <h2>1. Propriétaire du site web</h2>
+                <h2>1. {{ $t('termsOfUseMessage.titleOwner') }}</h2>
                 <p>
-                    Ce site web appartient à Creatiview. Toutes les photos s'y trouvant sont protégées par la loi sur le copyright.
+                    {{ $t('termsOfUseMessage.pOwner') }}
                 </p>
             </section>
             <section>
-                <h2>2. Votre utilisation des photos</h2>
+                <h2>2. {{ $t('termsOfUseMessage.titleUsing') }}</h2>
                 <p>
-                    Si vous décidez d'utiliser une photo présente sur le site web, vous ne pouvez ni la reproduire, ni la modifier, ni l'afficher,
-                    ni la transmettre, ni la ditribuer de quelconque manière que ce soit sans l'accord écrit de Creatiview.
+                    {{ $t('termsOfUseMessage.p1Using') }}
                 </p>
                 <p>
-                    Vous avez néamoins l'authorisation de partager l'ensemble des photos sur les réseaux sociaux ou sites web à condition de faire une référence explicite au site "www.creatiview.be".
+                    {{ $t('termsOfUseMessage.p2Using') }}
                 </p>
                 <p>
-                    Vous avez néanmoins l'authorisation de faire imprimer et afficher la photo si elle se trouve dans un espace privé et personnel (maison, appartement, ...).
+                    {{ $t('termsOfUseMessage.p3Using') }}
                 </p>
                 <p>
-                    Vous ne pouvez pas afficher, sans l'accord écrit de Creatiview, une photo dans un bureau, un hall d'entrée ou tout autre espace public.
+                    {{ $t('termsOfUseMessage.p4Using') }}
                 </p>
             </section>
             <section>
-                <h2>3. Politique d'indémnisation</h2>
+                <h2>3. {{ $t('termsOfUseMessage.titleCompensation') }}</h2>
                 <p>
-                    Si toutefois, vous utilisez les photos présentes sur le site sans accord écrit, vous serez poursuivi pour violation des droits de propriété intellectuelle.
+                    {{ $t('termsOfUseMessage.pCompensation') }}
                 </p>
             </section>
         </div>

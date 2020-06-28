@@ -3,8 +3,8 @@
         <div class="content">
             <CvTextSlogant class="svgLogo"/>
             <div class="mainActions">
-                <router-link to="/gallery">Visit Gallery</router-link>
-                <router-link to="/needWebsite">Need a website?</router-link>
+                <router-link to="/gallery">{{ $t('homeMessage.visitGallery') }}</router-link>
+                <router-link to="/needWebsite">{{ $t('homeMessage.needAWebsite') }}</router-link>
             </div>
         </div>
         <div class="background">
