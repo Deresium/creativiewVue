@@ -1,6 +1,6 @@
 <template>
     <div class="mainPage">
-        <h1>Gallery</h1>
+        <h1>{{ $t('homeMessage.gallery') }}</h1>
         <div v-if="connectedAsAdmin" class="adminAction">
             <router-link to="/addGallery" class="addGallery">Add gallery</router-link>
         </div>
