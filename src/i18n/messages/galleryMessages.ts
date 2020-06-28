@@ -44,7 +44,7 @@ export default {
             buttonAskingOriginalWithoutDonation: 'Request without donation',
             buttonAskingOriginalWithDonation: 'Request with donation',
             amount: 'Amount',
-            name: 'Name and firstname',
+            name: 'Name and first name',
             supportMe: 'Support me',
             successDonation: 'Thank you for your support. You will receive a first email with your payment confirmation and a second one with the picture.',
             completeForm: 'Please complete the entire form before asking for the picture.',
