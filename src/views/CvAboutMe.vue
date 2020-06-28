@@ -1,6 +1,6 @@
 <template>
     <div class="mainPage">
-        <h1>About Me</h1>
+        <h1>{{ $t('homeMessage.aboutMe') }}</h1>
         <div class="divAboutMe">
             <section>
                 <p class="mainWord">Hello !</p>
