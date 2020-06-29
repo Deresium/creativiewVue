@@ -2,7 +2,7 @@ export default {
     fr: {
         homeMessage: {
             visitGallery: 'Visiter la gallerie',
-            gallery: 'Gallerie',
+            gallery: 'Galerie',
             needAWebsite: 'Besoin d\'un site web?',
             aboutMe: 'A propos de moi',
             french: 'Français',
