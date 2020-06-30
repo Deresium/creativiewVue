@@ -17,7 +17,7 @@
             <img @click="closingFullSize" :class="showClear" src="../assets/icons/clear.svg" alt="clear icon"/>
             <div class="clickButtons">
                 <router-link :class="askingOriginal" :to=routeOriginal>{{ $t("galleryMessage.askingOriginalQuality") }}</router-link>
-                <CvFacebookShare :class="fbShare" :url="getUrlFullSize"/>
+                <CvFacebookShare :class="fbShare" :url="urlFullSize"/>
             </div>
             <label v-if="connectedAsAdmin" class="addPicture">
                 <span>Add Picture</span>
@@ -58,7 +58,7 @@
             }
         }
 
-        getUrlFullSize(){
+        get urlFullSize(): string|null{
             if(this.fullSizedImage != null)
                 return this.fullSizedImage.photoUrl
             else
