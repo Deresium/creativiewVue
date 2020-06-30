@@ -10,14 +10,14 @@
 
     @Component
     export default class CvFacebookShare extends Vue {
-        @Prop() albumURL!: string;
+        @Prop() url!: string;
 
         fbSharing(){
             // @ts-ignore
             // eslint-disable-next-line no-undef
             FB.ui({
                 method: 'share',
-                href: this.albumURL
+                href: this.url
             });
         }
     }
@@ -35,18 +35,16 @@
         border: none;
         border-radius: 10px;
         cursor: pointer;
-        padding-right: 2%;
+        padding-right: 3%;
     }
 
     button img{
         height: 4vh;
-        margin-right: 2%;
         border-radius: 10px;
     }
 
     @media(min-width: 900px){
         button{
-            padding-right: 1%;
         }
 
         button img{

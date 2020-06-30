@@ -3,7 +3,6 @@
         <div class="title">
             <img @click="goToGallery" src="../assets/icons/arrow.svg" alt="arrow svg"/>
             <h1>{{ $route.params.galleryName.replace('.', ' ')}}</h1>
-            <CvFacebookShare :album-u-r-l="routeGallery"/>
         </div>
         <div class="photoList">
             <img
@@ -16,7 +15,10 @@
                     alt="image gallery"
             />
             <img @click="closingFullSize" :class="showClear" src="../assets/icons/clear.svg" alt="clear icon"/>
-            <router-link :class="askingOriginal" :to=routeOriginal>{{ $t("galleryMessage.askingOriginalQuality") }}</router-link>
+            <div class="clickButtons">
+                <router-link :class="askingOriginal" :to=routeOriginal>{{ $t("galleryMessage.askingOriginalQuality") }}</router-link>
+                <CvFacebookShare :class="fbShare" :url="getUrlFullSize"/>
+            </div>
             <label v-if="connectedAsAdmin" class="addPicture">
                 <span>Add Picture</span>
                 <input type="file" @change="addNewPicture"/>
@@ -56,6 +58,12 @@
             }
         }
 
+        getUrlFullSize(){
+            if(this.fullSizedImage != null)
+                return this.fullSizedImage.photoUrl
+            else
+                return null;
+        }
         goToGallery(){
             this.$router.push('/gallery');
         }
@@ -88,6 +96,13 @@
             }
         }
 
+        get fbShare(){
+            return {
+                'showFbShare': this.fullSizedImage != null && this.showExtraMenu,
+                'hideFbShare': this.fullSizedImage == null
+            }
+        }
+
         get showClear(){
             return{
                 'showClear': this.fullSizedImage != null && this.showExtraMenu,
@@ -101,10 +116,6 @@
 
         get routeOriginal(){
             return `/askingOriginal/${this.fullSizedImage?.photoId}`;
-        }
-
-        get routeGallery(){
-            return `${process.env.VUE_APP_URL_CREATIVIEW_VUE}/gallery/${this.$route.params.galleryName}`
         }
 
         async addNewPicture(event: any){
@@ -155,10 +166,8 @@
     }
 
     .showOriginal{
-        position: fixed;
         display: block;
-        top: 6vh;
-        left: 2vw;
+        margin-bottom: 2vh;
         background-color: #005082;
         color: white;
         padding: 1vh 2vw;
@@ -170,6 +179,21 @@
 
     .hideOriginal{
         display: none;
+    }
+
+    .showFbShare{
+        z-index: 6;
+    }
+
+    .hideFbShare{
+        display: none;
+    }
+
+    .clickButtons{
+        position: fixed;
+        z-index: 6;
+        top: 4vh;
+        left: 2vw;
     }
 
     .title img{

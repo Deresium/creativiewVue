@@ -15,14 +15,8 @@ const router =  new VueRouter({
 
 router.beforeEach((to, from, next) => {
     document.title = to.meta.title;
-    if(to.name === 'detailGallery') {
+    if(to.name === 'detailGallery')
         document.title = document.title.replace(':dynamic', to.params.galleryName.replace('.', ' '));
-        const node: any = document.querySelector('[property="og:url"]');
-        node.setAttribute('content', `${process.env.VUE_APP_URL_CREATIVIEW_VUE}/gallery/${to.params.galleryName}`);
-    }else{
-        const node: any = document.querySelector('[property="og:url"]');
-        node.setAttribute('content', `${process.env.VUE_APP_URL_CREATIVIEW_VUE}`);
-    }
     next();
 });
 
