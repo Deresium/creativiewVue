@@ -89,5 +89,12 @@ export default [
         meta: {
             title: 'About Me - Creatiview'
         }
+    },
+    {
+        path: '/pictures/:galleryName/:idPhoto',
+        redirect: (to: any) => {
+            const galleryName = to.params.galleryName;
+            return `/gallery/${ galleryName }`;
+        }
     }
 ]
