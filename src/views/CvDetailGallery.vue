@@ -15,9 +15,9 @@
                     alt="image gallery"
             />
             <img @click="closingFullSize" :class="showClear" src="../assets/icons/clear.svg" alt="clear icon"/>
-            <div class="clickButtons">
-                <router-link :class="askingOriginal" :to=routeOriginal>{{ $t("galleryMessage.askingOriginalQuality") }}</router-link>
-                <CvFacebookShare :class="fbShare" :url="urlFullSize"/>
+            <div :class="clickButtons">
+                <router-link class="original" :to=routeOriginal>{{ $t("galleryMessage.askingOriginalQuality") }}</router-link>
+                <CvFacebookShare class="fbShare" :url="urlFullSize"/>
             </div>
             <label v-if="connectedAsAdmin" class="addPicture">
                 <span>Add Picture</span>
@@ -110,6 +110,13 @@
             }
         }
 
+        get clickButtons(){
+            return{
+                'showButtons': this.fullSizedImage != null && this.showExtraMenu,
+                'hideButtons': this.fullSizedImage == null
+            }
+        }
+
         closingFullSize(){
             this.fullSizedImage = null;
         }
@@ -165,7 +172,7 @@
         display: none;
     }
 
-    .showOriginal{
+    .original{
         display: block;
         margin-bottom: 2vh;
         background-color: #005082;
@@ -177,23 +184,19 @@
         font-weight: 300;
     }
 
-    .hideOriginal{
-        display: none;
-    }
-
-    .showFbShare{
+    .fbShare{
         z-index: 6;
     }
 
-    .hideFbShare{
-        display: none;
-    }
-
-    .clickButtons{
+    .showButtons{
         position: fixed;
         z-index: 6;
         top: 4vh;
         left: 2vw;
+    }
+
+    .hideButtons{
+        display: none;
     }
 
     .title img{
