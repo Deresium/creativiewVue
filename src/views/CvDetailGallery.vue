@@ -274,6 +274,7 @@
         }
 
         .photoList{
+            justify-content: space-evenly;
             align-items: stretch;
         }
 
