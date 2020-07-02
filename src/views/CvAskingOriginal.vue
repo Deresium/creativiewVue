@@ -51,8 +51,7 @@
 
     .donate{
         display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
+        flex-direction: column;
     }
 
     .contactLink{
@@ -70,6 +69,7 @@
 
     .donate img{
         width: 100%;
+        height: auto;
         margin-bottom: 2vh;
     }
 
@@ -82,6 +82,7 @@
     @media(min-width: 900px){
         .donate{
             flex-direction: row-reverse;
+            justify-content: space-between;
         }
 
         .donate img{
