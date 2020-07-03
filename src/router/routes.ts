@@ -43,7 +43,7 @@ export default [
         }
     },
     {
-        path: '/gallery/:galleryName',
+        path: '/gallery/:galleryName/:idPhoto?',
         name: 'detailGallery',
         component: CvDetailGallery,
         meta: {
@@ -94,7 +94,9 @@ export default [
         path: '/pictures/:galleryName/:idPhoto',
         redirect: (to: any) => {
             const galleryName = to.params.galleryName;
-            return `/gallery/${ galleryName }`;
+            const idPhoto = to.params.idPhoto;
+            return `/gallery/${ galleryName }/${ idPhoto }`;
+            //http://localhost:8080/pictures/Theme.parks/5ef2239da32707418cb3adc2
         }
     }
 ]

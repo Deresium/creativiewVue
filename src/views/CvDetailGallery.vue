@@ -16,9 +16,16 @@
             />
             <img @click="closingFullSize" :class="showClear" src="../assets/icons/clear.svg" alt="clear icon"/>
             <div :class="clickButtons">
-                <router-link class="original" :to=routeOriginal>{{ $t("galleryMessage.askingOriginalQuality") }}</router-link>
+                <router-link class="btnClick original" :to=routeOriginal>{{ $t("galleryMessage.askingOriginalQuality") }}</router-link>
+                <button @click="clipboardLink" :class="animateButton" class="btnClick btnClipboard">{{ $t("galleryMessage.clipboard") }}</button>
                 <CvFacebookShare class="fbShare" :url="urlFullSize"/>
             </div>
+            <button @click="switchExtraMenu" :class="divInfoCenter">
+                {{ $t("galleryMessage.messageCenter") }}<br/>
+                {{ $t("galleryMessage.messageCenter2") }}
+            </button>
+            <img src="../assets/icons/arrow.svg" @click="goPrevious(indexFullSizedImage)" :style="hideExtraMenu" class="arrow arrowLeft"/>
+            <img src="../assets/icons/arrow.svg" @click="goNext(indexFullSizedImage)" :style="hideExtraMenu" class="arrow arrowRight"/>
             <label v-if="connectedAsAdmin" class="addPicture">
                 <span>Add Picture</span>
                 <input type="file" @change="addNewPicture"/>
@@ -46,8 +53,19 @@
         fullSizedImage: Photo | null = null;
         showExtraMenu = true;
 
+        inClickAnimation = false;
+
         async created(){
             await this.loadGallery();
+            if(this.$route.params.idPhoto)
+                this.listPhotos.forEach(photo => {
+                    if(photo.photoId === this.$route.params.idPhoto)
+                        this.fullSizedImage = photo;
+                })
+        }
+
+        switchExtraMenu(){
+            this.showExtraMenu = !this.showExtraMenu;
         }
 
         async loadGallery(){
@@ -72,15 +90,31 @@
             if(this.fullSizedImage && this.fullSizedImage.photoId === photo.photoId){
                 const divideWith = window.innerWidth / 3;
                 const indexOfPhoto = this.listPhotos.indexOf(photo);
-                if(event.clientX < divideWith && indexOfPhoto !== 0)
-                    this.fullSizedImage = this.listPhotos[indexOfPhoto - 1];
-                else if(event.clientX > divideWith*2 && indexOfPhoto < this.listPhotos.length -1)
-                    this.fullSizedImage = this.listPhotos[indexOfPhoto + 1];
+                if(event.clientX < divideWith)
+                    this.goPrevious(indexOfPhoto)
+                else if(event.clientX > divideWith*2)
+                    this.goNext(indexOfPhoto);
                 else if(event.clientX >= divideWith && event.clientX <= divideWith * 2)
                     this.showExtraMenu = !this.showExtraMenu;
             }else {
                 this.fullSizedImage = photo;
             }
+        }
+
+        get indexFullSizedImage(){
+            if(this.fullSizedImage)
+                return this.listPhotos.indexOf(this.fullSizedImage);
+            return -1;
+        }
+
+        goPrevious(indexOfPhoto: number){
+            if(indexOfPhoto !== 0)
+                this.fullSizedImage = this.listPhotos[indexOfPhoto - 1];
+        }
+
+        goNext(indexOfPhoto: number){
+            if(indexOfPhoto < this.listPhotos.length -1)
+                this.fullSizedImage = this.listPhotos[indexOfPhoto + 1];
         }
 
         fullSized(photo: Photo){
@@ -89,17 +123,10 @@
             }
         }
 
-        get askingOriginal(){
+        get divInfoCenter(){
             return {
-                'showOriginal': this.fullSizedImage != null && this.showExtraMenu,
-                'hideOriginal': this.fullSizedImage == null
-            }
-        }
-
-        get fbShare(){
-            return {
-                'showFbShare': this.fullSizedImage != null && this.showExtraMenu,
-                'hideFbShare': this.fullSizedImage == null
+                'showInfoCenter': this.fullSizedImage != null && this.showExtraMenu,
+                'hideInfoCenter': this.fullSizedImage == null
             }
         }
 
@@ -114,6 +141,18 @@
             return{
                 'showButtons': this.fullSizedImage != null && this.showExtraMenu,
                 'hideButtons': this.fullSizedImage == null
+            }
+        }
+
+        get hideExtraMenu(){
+            return{
+                display : this.showExtraMenu && this.fullSizedImage != null? 'block': 'none'
+            }
+        }
+
+        get animateButton(){
+            return{
+                'animateButton': this.inClickAnimation
             }
         }
 
@@ -144,6 +183,16 @@
                 }
             }
         }
+
+        clipboardLink(){
+            this.inClickAnimation = false;
+            this.inClickAnimation = true;
+            if(this.fullSizedImage)
+                navigator.clipboard.writeText(this.fullSizedImage.photoUrl);
+            setTimeout(() => {
+                this.inClickAnimation = false;
+            }, 1000)
+        }
     }
 </script>
 
@@ -173,19 +222,42 @@
     }
 
     .original{
-        display: block;
         margin-bottom: 2vh;
+    }
+
+    .btnClick{
+        display: flex;
+        justify-content: center;
+        align-items: center;
         background-color: #005082;
         color: white;
         padding: 1vh 2vw;
-        z-index: 6;
         text-decoration: none;
         border-radius: 25px;
         font-weight: 300;
+        border: none;
+        outline: none;
     }
 
-    .fbShare{
-        z-index: 6;
+    .btnClipboard{
+        margin-bottom: 2vh;
+        cursor: pointer;
+    }
+
+    .animateButton{
+        animation: popupButton 0.3s
+    }
+
+    @keyframes popupButton {
+        0%{
+            transform: scale(1);
+        }
+        50%{
+            transform: scale(0.8);
+        }
+        100%{
+            transform: scale(1);
+        }
     }
 
     .showButtons{
@@ -197,6 +269,47 @@
 
     .hideButtons{
         display: none;
+    }
+
+    .showInfoCenter{
+        position: fixed;
+        text-align: center;
+        z-index: 6;
+        width: 90%;
+        top: 80%;
+        left: 5%;
+        color: white;
+        background-color: #005082;
+        padding: 1vh 2vw;
+        border-radius: 25px;
+        font-weight: 300;
+        border: none;
+        font-size: medium;
+        cursor: pointer;
+        outline: none;
+    }
+
+    .hideInfoCenter{
+        display: none;
+    }
+
+    .arrow{
+        width: 10%;
+        cursor: pointer;
+        position: fixed;
+        z-index: 6;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+
+    .arrowLeft{
+        left: 5%;
+    }
+
+    .arrowRight{
+        left: 85%;
+        transform: translateY(-50%) scaleX(-1);
     }
 
     .title img{
@@ -292,6 +405,20 @@
 
         .showOriginal{
             top: 1vh;
+        }
+
+        .showInfoCenter{
+            left: 30%;
+            width: 40%;
+            top: 90%;
+        }
+
+        .arrow{
+            width: 5%;
+        }
+
+        .arrowRight{
+            left: 90%
         }
     }
 </style>

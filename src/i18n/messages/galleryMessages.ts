@@ -22,7 +22,10 @@ export default {
             supportMe: 'Me supporter',
             successDonation: 'Merci pour votre soutien. Vous recevrez un premier mail avec la confirmation de votre payement et, par après, un second avec la photo.',
             completeForm: 'Merci de compléter l\'ensemble du formulaire avant de faire la demande',
-            successAsking: 'Merci pour l\'intérêt que vous portez à mon travail. Je vous envoie la photo dès que possible. 😉'
+            successAsking: 'Merci pour l\'intérêt que vous portez à mon travail. Je vous envoie la photo dès que possible. 😉',
+            clipboard: 'Copier le lien de la photo',
+            messageCenter: 'Appuyez au centre de la photo pour faire disparaître l\'interface.',
+            messageCenter2: 'Appuyez sur la gauche ou la droite de la photo pour faire défiler.'
         }
     },
     en: {
@@ -48,7 +51,10 @@ export default {
             supportMe: 'Support me',
             successDonation: 'Thank you for your support. You will receive a first email with your payment confirmation and a second one with the picture.',
             completeForm: 'Please complete the entire form before asking for the picture.',
-            successAsking: 'Thank you for your interest in my work. I will send you the picture as soon as possible. 😉'
+            successAsking: 'Thank you for your interest in my work. I will send you the picture as soon as possible. 😉',
+            clipboard: 'Copy photo link',
+            messageCenter: 'tap on the middle of the picture to disable overlay.',
+            messageCenter2: 'tap on left or right of the picture to scroll.'
         }
     }
 }
