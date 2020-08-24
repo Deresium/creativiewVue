@@ -7,7 +7,7 @@
         </section>
         <section>
             <h2>{{ $t('homeMessage.followMe') }}</h2>
-             <a href="https://www.facebook.com/Creatiview-115424323438636" target="_blank">Facebook</a>
+             <a href="https://www.facebook.com/Creatiview-115424323438636" target="_blank" rel="noopener">Facebook</a>
         </section>
         <section>
             <h2>{{ $t('homeMessage.explore') }}</h2>

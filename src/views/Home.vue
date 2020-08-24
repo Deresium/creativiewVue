@@ -73,6 +73,9 @@
 
     .background{
         position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         top: 0;
         z-index: 0;
         width: 100vw;
@@ -89,8 +92,7 @@
     }
 
     .background > img{
-        width: 100%;
-        height: 100%;
+        box-sizing: content-box;
     }
 
     @media(min-width: 900px){

@@ -24,8 +24,8 @@
                 {{ $t("galleryMessage.messageCenter") }}<br/>
                 {{ $t("galleryMessage.messageCenter2") }}
             </button>
-            <img src="../assets/icons/arrow.svg" @click="goPrevious(indexFullSizedImage)" :style="hideExtraMenu" class="arrow arrowLeft"/>
-            <img src="../assets/icons/arrow.svg" @click="goNext(indexFullSizedImage)" :style="hideExtraMenu" class="arrow arrowRight"/>
+            <img src="../assets/icons/arrow.svg" @click="goPrevious(indexFullSizedImage)" :style="hideExtraMenu" class="arrow arrowLeft" alt="arrow"/>
+            <img src="../assets/icons/arrow.svg" @click="goNext(indexFullSizedImage)" :style="hideExtraMenu" class="arrow arrowRight" alt="arrow"/>
             <label v-if="connectedAsAdmin" class="addPicture">
                 <span>Add Picture</span>
                 <input type="file" @change="addNewPicture"/>

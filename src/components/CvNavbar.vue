@@ -1,6 +1,6 @@
 <template>
     <nav :class="navClasses">
-        <img class="logo" src="../assets/logo.svg"/>
+        <img class="logo" src="../assets/logo.svg" alt="logo"/>
         <img class="phone menuIco" @click="switchMenu" src="../assets/icons/menu.svg" alt="icon-menu"/>
         <CvPhoneMenu @closeMenuClick="switchMenu" :show-menu-phone="showMenuPhone"/>
         <CvRoutes class="desktop routes"/>

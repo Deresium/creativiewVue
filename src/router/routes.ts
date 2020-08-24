@@ -8,6 +8,10 @@ import CvNeedWebsite from "@/views/CvNeedWebsite.vue";
 import CvContact from "@/views/CvContact.vue";
 import CvTermsOfUse from "@/views/CvTermsOfUse.vue";
 import CvAboutMe from "@/views/CvAboutMe.vue";
+import CvBenefits from "@/views/needwebsite/CvBenefits.vue";
+import CvTechnologies from "@/views/needwebsite/CvTechnologies.vue";
+import CvProjects from "@/views/needwebsite/CvProjects.vue";
+import CvRoadmap from "@/views/needwebsite/CvRoadmap.vue";
 
 export default [
     {
@@ -64,7 +68,43 @@ export default [
         component: CvNeedWebsite,
         meta: {
             title: 'Need a website - Creatiview'
-        }
+        },
+        children: [
+            {
+                path: '',
+                name: 'empty',
+                redirect: 'benefits'
+            },
+            {
+                path: 'benefits',
+                name:'benefits',
+                component: CvBenefits,
+                meta: {
+                    title: 'Need a website - Creatiview'
+                }
+            },
+            {
+                path: 'roadmap',
+                component: CvRoadmap,
+                meta: {
+                    title: 'Need a website - Creatiview'
+                }
+            },
+            {
+                path: 'technology',
+                component: CvTechnologies,
+                meta: {
+                    title: 'Need a website - Creatiview'
+                }
+            },
+            {
+                path: 'projects',
+                component: CvProjects,
+                meta: {
+                    title: 'Need a website - Creatiview'
+                }
+            }
+        ]
     },
     {
         path: '/contact',
