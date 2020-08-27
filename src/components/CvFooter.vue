@@ -2,7 +2,7 @@
     <footer :class="showFooter">
         <section>
             <h2>{{ $t('homeMessage.contactMe') }}</h2>
-            <a href="mailto:dimitri.steinbusch@hotmail.com">dimitri.steinbusch@hotmail.com</a>
+            <a href="mailto:dimitri.steinbusch@creatiview.be">dimitri.steinbusch@creatiview.be</a>
             <a href="tel:0032476691674">+32 476 69 16 74</a>
         </section>
         <section>
