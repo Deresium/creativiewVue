@@ -93,6 +93,8 @@
 
     .background > img{
         box-sizing: content-box;
+        width: 100%;
+        height: 100vh;
     }
 
     @media(min-width: 900px){
@@ -111,6 +113,12 @@
         .mainActions > a{
             font-size: xx-large;
             width: 20%;
+        }
+    }
+
+    @media(min-width: 1400px){
+        .svgLogo{
+            width: 50%;
         }
     }
 </style>
