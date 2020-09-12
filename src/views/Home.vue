@@ -8,7 +8,6 @@
             </div>
         </div>
         <div class="background">
-            <img class="heroImg" src="../assets/hero.jpg" alt="heroImg"/>
         </div>
         <div class="whiter"></div>
     </div>
@@ -80,6 +79,10 @@
         z-index: 0;
         width: 100vw;
         height: 100vh;
+        background-image: url("../assets/hero.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 
     .whiter{
@@ -89,12 +92,6 @@
         width: 100vw;
         height: 100%;
         background-color: rgba(255, 255, 255, 0.5);
-    }
-
-    .background > img{
-        box-sizing: content-box;
-        width: 100%;
-        height: 100vh;
     }
 
     @media(min-width: 900px){
