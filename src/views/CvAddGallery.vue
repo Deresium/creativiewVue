@@ -60,7 +60,7 @@
                 if(this.descriptionFr && this.descriptionEn && this.galleryName) {
                     formData.append('descriptionFr', this.descriptionFr);
                     formData.append('descriptionEn', this.descriptionEn);
-                    formData.append('galleryName', this.galleryName);
+                    formData.append('name', this.galleryName);
                 }
                 await axiosCreatiview.post('/gallery', formData, {
                     headers: {

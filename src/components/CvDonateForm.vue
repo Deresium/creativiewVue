@@ -51,18 +51,19 @@
         }
 
         get amountWithoutComa(){
-            if(this.donationAmount)
-                if(Math.floor(this.donationAmount) == this.donationAmount)
+            if(this.donationAmount) {
+                if (Math.floor(this.donationAmount) == this.donationAmount)
                     return `${this.donationAmount}00`;
-                else{
+                else {
                     const splitingAmount = this.donationAmount.toString().split('.');
-                    if(splitingAmount[1].length === 1)
+                    if (splitingAmount[1].length === 1)
                         return `${splitingAmount[0]}${splitingAmount[1]}0`;
-                    else if(splitingAmount[1].length == 2)
+                    else if (splitingAmount[1].length == 2)
                         return `${splitingAmount[0]}${splitingAmount[1]}`;
                     else
                         return `${splitingAmount[0]}${splitingAmount[1].substr(0, 2)}`;
                 }
+            }
             return null;
         }
 
@@ -108,7 +109,7 @@
                                 fullName: this.name,
                                 email: this.email,
                                 paymentState: 'PENDING',
-                                photo: this.photoId
+                                photoId: this.photoId
                             });
                         window.location.replace(response.source.redirect!.url);
                     }
@@ -125,7 +126,7 @@
                 const response = await axiosCreatiview.post('/createTransaction', {
                     fullName: this.name,
                     email: this.email,
-                    photo: this.photoId
+                    photoId: this.photoId
                 });
                 if(response.status === 200){
                     this.disableSending = false;

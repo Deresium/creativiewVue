@@ -72,7 +72,7 @@
             const response = await axiosCreatiview.get(`/gallery/${ this.$route.params.galleryName }`);
             this.listPhotos = [];
             for(const picture of response.data){
-                this.listPhotos.push(new Photo(picture._id,`${process.env.VUE_APP_URL_CREATIVIEW}/pictures/${this.$route.params.galleryName}/${picture._id}`));
+                this.listPhotos.push(new Photo(picture.id,`${process.env.VUE_APP_URL_CREATIVIEW}/pictures/${this.$route.params.galleryName}/${picture.id}`));
             }
         }
 

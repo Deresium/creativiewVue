@@ -33,8 +33,8 @@
             try {
                 const response = await axiosCreatiview.get('/gallery');
                 for(const galleryResponse of response.data){
-                    const gallery = new Gallery(galleryResponse._id, galleryResponse.galleryName, galleryResponse.descriptionFr, galleryResponse.descriptionEn);
-                    gallery.addPicture(`${process.env.VUE_APP_URL_CREATIVIEW}/gallery/${galleryResponse._id}/mainPicture`);
+                    const gallery = new Gallery(galleryResponse.id, galleryResponse.name, galleryResponse.descriptionFr, galleryResponse.descriptionEn);
+                    gallery.addPicture(`${process.env.VUE_APP_URL_CREATIVIEW}/gallery/${galleryResponse.id}/mainPicture`);
                     this.galleries.push(gallery);
                 }
             }catch(error) {
