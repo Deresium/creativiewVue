@@ -1,11 +1,13 @@
+import Role from "@/enums/role"
+
 export default class UserState{
     private connected: boolean;
-    private admin: boolean;
+    private role: Role | null;
     private showLoginModal: boolean;
 
     constructor() {
         this.connected = false;
-        this.admin = false;
+        this.role = null;
         this.showLoginModal = false;
     }
 
@@ -16,13 +18,30 @@ export default class UserState{
     set isConnected(connected: boolean){
         this.connected = connected;
     }
-
-    get isAdmin(){
-        return this.admin;
+    
+    get userRole(): Role|null{
+        return this.role;
     }
-
-    set isAdmin(admin: boolean){
-        this.admin = admin;
+    
+    get onlyOwner(): boolean{
+        if(this.role) {
+            return this.role === Role.OWNER;
+        }
+        return false;
+    }
+    
+    get onlyAdmin(): boolean{
+        return this.role === Role.OWNER || this.role === Role.ADMIN;
+    }
+    
+    loginUser(role: Role){
+        this.role = role;
+        this.connected = true;
+    }
+    
+    logoutUser(){
+        this.role = null;
+        this.connected = false;
     }
 
     get isShowLoginModal(){

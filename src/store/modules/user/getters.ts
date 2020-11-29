@@ -3,8 +3,14 @@ import UserState from "@/store/modules/user/UserState";
 import StoreState from "@/store/StoreState";
 
 export const getters: GetterTree<UserState, StoreState> = {
-    isConnectedAsAdmin(state): boolean{
-        return state.isAdmin && state.isConnected;
+    isLoggedIn(state): boolean{
+        return state.isConnected;
+    },
+    onlyOwner(state): boolean{
+        return state.onlyOwner;
+    },
+    onlyAdmin(state): boolean{
+        return state.onlyAdmin;
     },
     isDisconnected(state): boolean{
         return !state.isConnected;

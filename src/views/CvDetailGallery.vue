@@ -26,7 +26,7 @@
             </button>
             <img src="../assets/icons/arrow.svg" @click="goPrevious(indexFullSizedImage)" :style="hideExtraMenu" class="arrow arrowLeft" alt="arrow"/>
             <img src="../assets/icons/arrow.svg" @click="goNext(indexFullSizedImage)" :style="hideExtraMenu" class="arrow arrowRight" alt="arrow"/>
-            <label v-if="connectedAsAdmin" class="addPicture">
+            <label v-if="onlyOwner" class="addPicture">
                 <span>Add Picture</span>
                 <input type="file" @change="addNewPicture"/>
             </label>
@@ -47,7 +47,7 @@
     })
     export default class CvDetailGallery extends Vue {
         @Action('showLoginModal', { namespace: 'user'}) showLoginModal: any;
-        @Getter('isConnectedAsAdmin', { namespace: 'user'}) connectedAsAdmin!: boolean;
+        @Getter('onlyOwner', { namespace: 'user'}) onlyOwner!: boolean;
 
         listPhotos: Photo[] = [];
         fullSizedImage: Photo | null = null;

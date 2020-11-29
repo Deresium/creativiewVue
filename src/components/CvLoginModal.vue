@@ -1,33 +1,18 @@
 <template>
     <div v-if="isShowLoginModal && isDisconnected" :class="classesAsModal">
-        <form v-on:submit.prevent="submitLogin" novalidate="novalidate">
-            <div class="formInput">
-                <label>
-                    <span>Login</span>
-                    <input type="text" v-model="login"/>
-                </label>
-            </div>
-            <div class="formInput">
-                <label>
-                    <span>Password</span>
-                    <input type="password" v-model="password"/>
-                </label>
-            </div>
-            <button :disabled="disabledSending" type="submit" class="btnAction">Envoyer</button>
-        </form>
+        <CvGoogleSignin/>
     </div>
 </template>
 
 <script lang="ts">
     import { Component, Vue, Prop } from 'vue-property-decorator';
     import {Action, Getter} from "vuex-class";
-    import axiosCreatiview from "../axios/axiosCreatiview";
-
-    @Component
+    import CvGoogleSignin from "@/components/CvGoogleSignin.vue";
+    @Component({
+        components: {CvGoogleSignin}
+    })
     export default class CvLoginModal extends Vue {
-        disabledSending = false;
         login = null;
-        password = null;
         @Prop() asModal!: boolean;
 
         @Action('connectAsAdmin', {namespace: 'user'}) connectAsAdmin: any;
@@ -35,31 +20,6 @@
         @Action('hideLoginModal', { namespace: 'user'}) hideLoginModal: any;
         @Getter('isShowLoginModal', { namespace: 'user'}) isShowLoginModal: any;
         @Getter('isDisconnected', { namespace: 'user'}) isDisconnected: any;
-
-        async submitLogin(){
-            try{
-                this.disabledSending = true;
-                if(this.login && this.password){
-                    const response = await axiosCreatiview.post('/login', {login: this.login, password: this.password});
-                    if(response.status == 200){
-                        this.connectAsAdmin();
-                        if(this.asModal) {
-                            this.hideLoginModal();
-                        }
-                    }else{
-                        alert('error');
-                    }
-                }else{
-                    alert('Fill all the form');
-                }
-            }catch(error){
-                if(error.response.status == 401){
-                    this.disconnect();
-                }
-            }finally{
-                this.disabledSending = false;
-            }
-        }
 
         get classesAsModal(){
             return{

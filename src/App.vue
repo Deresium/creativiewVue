@@ -18,10 +18,12 @@
         components: {CvFooter, CvNavbar}
     })
     export default class App extends Vue {
-        @Action('connectAsAdmin', {namespace: 'user'}) connectAsAdmin: any;
+        @Action('loginUser', {namespace: 'user'}) loginUser: any;
         created(){
             if(this.$cookies.isKey('payload')){
-                this.connectAsAdmin();
+                const payload = this.$cookies.get('payload');
+                const decriptPayload = JSON.parse(atob(payload.split('.')[1]));
+                this.loginUser(decriptPayload.role);
             }
 
             if(this.$cookies.isKey('lang')){

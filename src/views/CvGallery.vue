@@ -1,7 +1,7 @@
 <template>
     <div class="mainPage">
         <h1>{{ $t('homeMessage.gallery') }}</h1>
-        <div v-if="connectedAsAdmin" class="adminAction">
+        <div v-if="onlyOwner" class="adminAction">
             <router-link to="/addGallery" class="addGallery">Add gallery</router-link>
         </div>
         <div class="allGallery">
@@ -25,7 +25,7 @@
     import Gallery from "@/models/Gallery";
     @Component
     export default class CvGallery extends Vue{
-        @Getter('isConnectedAsAdmin', { namespace: 'user'}) connectedAsAdmin!: boolean;
+        @Getter('onlyOwner', { namespace: 'user'}) onlyOwner!: boolean;
 
         galleries: Gallery[] = [];
 

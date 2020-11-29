@@ -1,5 +1,5 @@
 <template>
-    <div v-if="connectedAsAdmin" class="mainPage">
+    <div v-if="onlyOwner" class="mainPage">
         <form v-on:submit.prevent="postGallery" novalidate="novalidate">
             <div class="descriptionPart">
                 <label>
@@ -41,7 +41,7 @@
 
     @Component
     export default class CvAddGallery extends Vue {
-        @Getter('isConnectedAsAdmin', { namespace: 'user'}) connectedAsAdmin!: boolean;
+        @Getter('onlyOwner', { namespace: 'user'}) onlyOwner!: boolean;
         @Action('showLoginModal', { namespace: 'user'}) showLoginModal: any;
 
         listFiles: any[] = [];
@@ -53,20 +53,20 @@
         async postGallery(){
             try{
                 this.disableSending = true;
-                const formData = new FormData();
-                this.listFiles.forEach(file => {
-                    formData.append(`photo`, file, file.name);
-                })
-                if(this.descriptionFr && this.descriptionEn && this.galleryName) {
-                    formData.append('descriptionFr', this.descriptionFr);
-                    formData.append('descriptionEn', this.descriptionEn);
-                    formData.append('name', this.galleryName);
-                }
-                await axiosCreatiview.post('/gallery', formData, {
-                    headers: {
-                        'Content-Type': 'multipart/form-data'
+                    const formData = new FormData();
+                    this.listFiles.forEach(file => {
+                        formData.append(`photo`, file, file.name);
+                    })
+                    if(this.descriptionFr && this.descriptionEn && this.galleryName) {
+                        formData.append('descriptionFr', this.descriptionFr);
+                        formData.append('descriptionEn', this.descriptionEn);
+                        formData.append('name', this.galleryName);
                     }
-                });
+                    await axiosCreatiview.post('/gallery', formData, {
+                        headers: {
+                            'Content-Type': 'multipart/form-data'
+                        }
+                    });
             }catch(error){
                 if(error.response.status === 401){
                     this.showLoginModal();

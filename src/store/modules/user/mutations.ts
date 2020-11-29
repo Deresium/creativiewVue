@@ -1,14 +1,13 @@
 import {MutationTree} from "vuex";
 import UserState from "@/store/modules/user/UserState";
+import Role from "@/enums/role";
 
 export const mutations: MutationTree<UserState> = {
-    connectAsAdmin(state: UserState) {
-        state.isAdmin = true;
-        state.isConnected = true;
+    loginUser(state: UserState, role: Role){
+        state.loginUser(role);
     },
-    disconnect(state: UserState){
-        state.isAdmin = false;
-        state.isConnected = false;
+    logoutUser(state: UserState){
+        state.logoutUser();
     },
     showLoginModal(state: UserState){
         state.isShowLoginModal = true;
