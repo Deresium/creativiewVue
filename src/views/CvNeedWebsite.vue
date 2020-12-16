@@ -7,7 +7,7 @@
           <p class="blue">Arrêtez les coups de téléphone, SMS, e-mails, messenger, ... chronophages et qui engendrent des oublis et des commandes erronées. Rassemblez vos commandes dans un système de gestion simple et redirigez vos clients vers votre boutique en ligne.</p>
         </div>
       </div>
-      <a class="downloadPdf" :href="pathToPdf" target="_blank">Télécharger le PDF</a>
+      <a class="downloadPdf" :href="pathToPdf" target="_blank" download="Creatiview - Commandes & Eshop">Télécharger le PDF</a>
 
       <div class="presentation left">
         <div class="text">
