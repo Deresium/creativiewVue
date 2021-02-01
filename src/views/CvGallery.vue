@@ -4,7 +4,6 @@
         <div v-if="onlyOwner" class="adminAction">
             <router-link to="/addGallery" class="addGallery">Add gallery</router-link>
         </div>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <!-- annonce 1 -->
         <ins class="adsbygoogle"
              style="display:block"
@@ -12,9 +11,6 @@
              data-ad-slot="9960199001"
              data-ad-format="auto"
              data-full-width-responsive="true"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
         <div class="allGallery">
             <div class="gallery" v-for="gallery in galleries" :key="gallery.galleryID">
                 <div class="infoGallery">
