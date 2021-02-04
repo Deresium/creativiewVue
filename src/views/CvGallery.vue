@@ -4,8 +4,8 @@
         <div v-if="onlyOwner" class="adminAction">
             <router-link to="/addGallery" class="addGallery">Add gallery</router-link>
         </div>
-<!--        <script type="application/javascript" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        &lt;!&ndash; annonce 1 &ndash;&gt;
+        <script type="application/javascript" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- annonce 1 -->
         <ins class="adsbygoogle"
              style="display:block"
              data-ad-client="ca-pub-5833099071292911"
@@ -14,7 +14,7 @@
              data-full-width-responsive="true"></ins>
         <script type="application/javascript">
             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>-->
+        </script>
         <div class="allGallery">
             <div class="gallery" v-for="gallery in galleries" :key="gallery.galleryID">
                 <div class="infoGallery">
