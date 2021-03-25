@@ -7,9 +7,9 @@
             </div>-->
             <div class="otherMenu">
                 <router-link to="/">Home</router-link>
-                <router-link to="/gallery">{{ $t('homeMessage.gallery') }}</router-link>
-                <router-link to="/needWebsite">{{ $t('homeMessage.needAWebsite') }}</router-link>
-                <router-link to="/aboutMe">{{ $t('homeMessage.aboutMe') }}</router-link>
+                <router-link to="/aboutMe/presentation">{{$t('homeMessage.aboutMe')}}</router-link>
+                <router-link to="/needWebsite">{{$t('homeMessage.needAWebsite')}}</router-link>
+                <router-link to="/gallery">My Pictures</router-link>
                 <router-link to="/contact">Contact</router-link>
             </div>
         </div>
@@ -49,7 +49,7 @@
         color: white;
         text-decoration: none;
         font-weight: 300;
-        font-size: xx-large;
+        font-size: x-large;
         margin-bottom: 3vh;
     }
 
@@ -82,6 +82,7 @@
 
         .menuLinks a{
             margin-bottom: 0;
+            color: #005082;
         }
     }
 

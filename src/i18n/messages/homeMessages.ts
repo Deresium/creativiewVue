@@ -11,7 +11,7 @@ export default {
             contactMe: 'Me contacter',
             followMe: 'Me suivre',
             explore: 'Explorer',
-            legal: 'Légale'
+            legal: 'Légale',
         }
     },
     en: {

@@ -1,5 +1,5 @@
 <template>
-    <nav :class="navClasses">
+    <nav v-show="showBackground">
         <img class="logo" src="../assets/logo.svg" alt="logo"/>
         <img class="phone menuIco" @click="switchMenu" src="../assets/icons/menu.svg" alt="icon-menu"/>
         <CvPhoneMenu @closeMenuClick="switchMenu" :show-menu-phone="showMenuPhone"/>
@@ -23,12 +23,6 @@
         switchMenu(){
             this.showMenuPhone = !this.showMenuPhone;
         }
-
-        get navClasses(){
-           return{
-               'colorBackground': this.showBackground
-           }
-        }
     }
 </script>
 
@@ -40,15 +34,12 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        height: 10vh;
-    }
-
-    .colorBackground{
-        background-color: #005082;
+        margin-bottom: 10px;
+        margin-top: 10px;
     }
 
     .menuIco{
-        width: 70px;
+        width: 50px;
         margin-right: 5%;
     }
 
@@ -72,6 +63,7 @@
             height: auto;
             padding-top: 1vh;
             padding-bottom: 1vh;
+            background-color: white;
         }
     }
 

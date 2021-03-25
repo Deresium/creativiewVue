@@ -34,6 +34,14 @@
 </script>
 
 <style>
+    h1{
+        width: 100%;
+        color: #005082;
+        font-weight: 300;
+        margin-top: 2vh;
+        border-bottom: solid 1px #FFA41B;
+    }
+
     #app{
         min-height: 100%;
         width: 100%;
@@ -53,21 +61,22 @@
 
     .mainPage{
         width: 90%;
+        min-height: 90vh;
         margin-left: 5%;
         margin-right: 5%;
     }
 
     @media (min-width: 900px) {
+        h1{
+            width: 50%;
+        }
+
         .phone {
             display: none;
         }
 
         .desktop {
             display: block;
-        }
-
-        .exceptFooter{
-            min-height: 90vh;
         }
     }
 

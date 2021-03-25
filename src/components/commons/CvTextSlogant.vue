@@ -7,7 +7,6 @@
                 <text id="iew" transform="translate(663 466)" fill="#005082" font-size="159"><tspan x="0" y="0">iew</tspan></text>
                 <path id="Path_8" d="M144,134.025H259.225L144,253.136Z" transform="translate(388.556 217.086)" fill="#ffa41b"/>
             </g>
-            <text id="From_photography_to_website" transform="translate(487 595)" fill="#005082" font-size="76"><tspan x="0" y="0">From photography to website</tspan></text>
         </g>
     </svg>
 </template>

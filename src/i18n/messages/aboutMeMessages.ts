@@ -13,7 +13,9 @@ export default {
             p6:'',
             p7: '',
             p7contact: '',
-            p7end: ''
+            p7end: '',
+            introduction: 'Présentation',
+            skills: 'Compétences'
         }
 
     },
@@ -31,7 +33,9 @@ export default {
             p6: 'I can help you conceiving and developing your website, or help you enhance your communication with new pictures to illustrate your business.',
             p7: 'I hope you enjoy my work. Do not hesitate to ',
             p7contact: 'contact me',
-            p7end: ' if you are interested in my services or have collaborations ideas. I also invite you to share feedback about my pictures or leave a kind message.'
+            p7end: ' if you are interested in my services or have collaborations ideas. I also invite you to share feedback about my pictures or leave a kind message.',
+            introduction: 'Introduction',
+            skills: 'Skills'
         }
 
     }

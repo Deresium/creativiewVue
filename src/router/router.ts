@@ -8,6 +8,9 @@ const router =  new VueRouter({
     mode: 'history',
     routes,
     scrollBehavior(to, from, savedPosition){
+        if(to.name === 'Presentation' || to.name === 'Skills')
+            return;
+        
         if (savedPosition)
             return savedPosition
         else if (to.hash)

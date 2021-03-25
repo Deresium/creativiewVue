@@ -8,6 +8,9 @@ import CvNeedWebsite from "@/views/CvNeedWebsite.vue";
 import CvContact from "@/views/CvContact.vue";
 import CvTermsOfUse from "@/views/CvTermsOfUse.vue";
 import CvAboutMe from "@/views/CvAboutMe.vue";
+import CvCredits from "@/views/CvCredits.vue";
+import CvPresentation from "@/components/CvPresentation.vue";
+import CvSkills from "@/components/CvSkills.vue";
 
 export default [
     {
@@ -84,10 +87,43 @@ export default [
     },
     {
         path: '/aboutMe',
-        name: 'About Me',
         component: CvAboutMe,
         meta: {
             title: 'About Me - Creatiview'
+        },
+        children: [
+            {
+                path: '',
+                name: 'About Me',
+                component: CvPresentation,
+                meta: {
+                    title: 'About Me - Creatiview'
+                }
+            },
+            {
+                path: 'presentation',
+                name: 'Presentation',
+                component: CvPresentation,
+                meta: {
+                    title: 'About Me - Creatiview'
+                }
+            },
+            {
+                path: 'skills',
+                name: 'Skills',
+                component: CvSkills,
+                meta: {
+                    title: 'About Me - Creatiview'
+                }
+            }
+        ]
+    },
+    {
+        path: '/credits',
+        name: 'Credits',
+        component: CvCredits,
+        meta: {
+            title: 'Credits - Creatiview'
         }
     },
     {

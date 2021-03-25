@@ -26,6 +26,7 @@
         </section>
         <section class="copyright">
             <p>© Copyright 2020, Creatiview.be. All rights reserved.</p>
+            <router-link :to="{name: 'Credits'}">Credits</router-link>
         </section>
     </footer>
 </template>
@@ -92,6 +93,9 @@
 
     .copyright{
         font-size: small;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
     }
 
     @media(min-width: 900px){
@@ -106,6 +110,10 @@
 
         .copyright{
             align-self: flex-end;
+        }
+
+        .copyright a{
+            text-align: left;
         }
     }
 </style>

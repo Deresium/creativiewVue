@@ -32,12 +32,6 @@
 </script>
 
 <style scoped>
-    h1{
-        color: #005082;
-        font-weight: normal;
-        margin-top: 2vh;
-        border-bottom: solid 5px #FFA41B;
-    }
 
     .info{
         margin-top: 2vh;
