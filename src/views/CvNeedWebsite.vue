@@ -23,6 +23,12 @@
             </div>
 
             <div class="card">
+                <h4>{{ $t('needWebsiteMessages.skill') }}</h4>
+                <p>{{ $t('needWebsiteMessages.skillMessage1') }}</p>
+                <p>{{ $t('needWebsiteMessages.skillMessage2') }}</p>
+            </div>
+
+            <div class="card">
                 <h4>{{ $t('needWebsiteMessages.free') }}</h4>
                 <p>{{ $t('needWebsiteMessages.freeMessage1') }}</p>
                 <p>{{ $t('needWebsiteMessages.freeMessage2') }}</p>
@@ -139,19 +145,19 @@ h4{
 
 .cards{
     margin-top: 10px;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
 }
 
 .card{
-    background-color: #005082;
-    color: white;
+    color: #005082;
     padding: 10px;
     border-radius: 10px;
     margin-bottom: 10px;
+    box-shadow: -3px 5px rgba(0, 80, 130, .5);
 }
 
 .card a{
-    color: white;
+    color: #005082;
     font-weight: bold;
     text-decoration: none;
 }
@@ -160,7 +166,7 @@ h4{
 
 .contactMe {
     display: inline-block;
-    font-size: xx-large;
+    font-size: x-large;
     text-decoration: none;
     color: #005082;
     border: 1px solid #005082;
@@ -179,14 +185,15 @@ h4{
 }
 
 .project{
-    background-color: #FFA41B;
+    color: #005082;
     padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 30px;
     border-radius: 10px;
-    margin-bottom: 10px;
+    box-shadow: -3px 5px rgba(255, 164, 27, .5);
 }
 
 .project a{
@@ -194,8 +201,8 @@ h4{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: black;
     font-weight: bold;
+    color: #005082;
 }
 
 .project img{
@@ -207,11 +214,13 @@ h4{
 .description p{
     margin-top: 10px;
     text-align: center;
+    color: #005082;
 }
 
 .end p{
     text-align: center;
-    font-size: xx-large;
+    font-size: x-large;
+    color: #005082;
 }
 
 .end{

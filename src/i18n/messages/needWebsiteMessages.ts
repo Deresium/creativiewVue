@@ -26,6 +26,9 @@ export default {
             cnMessage1: 'Site web adapté à tous les écrans présentant en détails toute l\'entreprise familiale spécialisée dans l\'infrastructure réseau.',
             samplierMessage1: 'Site web présentant l\'actualité de la musique rap. Une interface d\'administration a été développée pour gérer le calendrier des sorties et un dépôt de fichiers audio.',
             uliegeMessage1: 'Je travaille depuis 2017 au sein de l\'Université de Liège. On travaille en équipe au développement de la plate-forme destinée aux étudiants et membres du personnel.',
+            skill: 'Compétences',
+            skillMessage1: 'Diplômé en Informatique de gestion et travaillant au sein de l\'Université de Liège, j\'ai les connaissances et les outils pour comprendre au mieux vos besoins et y répondre.',
+            skillMessage2: 'Votre site web sera sécurisé, rapide et adaptable selon vos futures envies. Toutes vos données sont sauvegardées régulièrement afin d\'éviter la moindre perte.',
 
 
 
@@ -99,7 +102,9 @@ export default {
             cnMessage1: 'Website suitable for all screens presenting in detail the entire family business specializing in network infrastructure.',
             samplierMessage1: 'Website presenting the latest rap music news. An administration interface has been developed to manage the release schedule and a repository of audio files.',
             uliegeMessage1: 'Since 2017 I have been working at the University of Liège. We work as a team to develop the platform for students and staff.',
-
+            skill: 'Skills',
+            skillMessage1: 'Graduated in IT and working at the University of Liège, I have the knowledge and the tools to best understand your needs and meet them.',
+            skillMessage2: 'Your website will be secure, fast and adaptable according to your future requirements. All your data is backed up regularly to avoid any loss.',
 
             visibility: 'Online Visibility',
             automation: 'Automate your processes',
