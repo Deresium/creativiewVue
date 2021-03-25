@@ -2,7 +2,7 @@
     <div class="mainPage">
         <div class="title">
             <img @click="goToGallery" src="../assets/icons/arrow.svg" alt="arrow svg"/>
-            <h1>{{ $route.params.galleryName.replace('.', ' ')}}</h1>
+            <h1 class="galleryTitle">{{ $route.params.galleryName.replace('.', ' ')}}</h1>
         </div>
         <div class="photoList">
             <img
@@ -200,11 +200,14 @@
     .title{
         width: 100%;
         display: flex;
-        border-bottom: 5px solid #FFA41B;
         margin-bottom: 2vh;
         margin-top: 2vh;
         color: #005082;
         align-items: center;
+    }
+
+    h1.galleryTitle{
+        margin-top: 0;
     }
 
     .showClear{
