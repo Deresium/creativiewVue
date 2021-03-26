@@ -7,11 +7,12 @@
                 <section>
                     <a href="mailto:dimitri.steinbusch@creatiview.be">dimitri.steinbusch@creatiview.be</a>
                     <a href="tel:0032476691674">+32 476 69 16 74</a>
+                    <p>TVA: BE0753 863 214</p>
                     <div class="socialIcons">
                         <a href="https://www.linkedin.com/in/dimitri-steinbusch-239878129/" target="_blank" rel="noopener">
                             <img class="socialImg" src="../assets/linkedin.png" alt="linkedin icon"/>
                         </a>
-                        <a href="https://www.facebook.com/dimitri.steinbusch.7" target="_blank" rel="noopener">
+                        <a href="https://www.facebook.com/Creatiview-115424323438636" target="_blank" rel="noopener">
                             <img class="socialImg" src="../assets/fb_icon.png" alt="facebook icon"/>
                         </a>
                     </div>
@@ -41,7 +42,7 @@
         color: #005082;
     }
 
-    .info a{
+    .info a, .info p{
         display: block;
         margin-top: 1vh;
         margin-bottom: 1vh;
@@ -66,6 +67,10 @@
 
         .contactForm, .info{
             width: 50%;
+        }
+
+        .info p{
+            text-align: center;
         }
 
         .info{
