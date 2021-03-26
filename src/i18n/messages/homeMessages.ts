@@ -3,6 +3,7 @@ export default {
         homeMessage: {
             visitGallery: 'Visiter la galerie',
             gallery: 'Galerie',
+            myPictures: 'Mes Photos',
             needAWebsite: 'Besoin d\'un site web?',
             aboutMe: 'A propos de moi',
             french: 'Français',
@@ -18,6 +19,7 @@ export default {
         homeMessage: {
             visitGallery: 'Visit Gallery',
             gallery: 'Gallery',
+            myPictures: 'My Pictures',
             needAWebsite: 'Need a website?',
             aboutMe: 'About Me',
             french: 'French',

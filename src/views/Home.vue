@@ -6,9 +6,9 @@
                 <p>Website Creation <span class="orange">&</span> Full Stack Development</p>
             </div>
             <div class="mainActions">
-                <router-link to="/aboutMe/presentation">About Me</router-link>
+                <router-link to="/aboutMe/presentation">{{$t('homeMessage.aboutMe')}}</router-link>
                 <router-link to="/needWebsite">{{$t('homeMessage.needAWebsite')}}</router-link>
-                <router-link to="/gallery">My Pictures</router-link>
+                <router-link to="/gallery">{{$t('homeMessage.myPictures')}}</router-link>
             </div>
         </div>
         <div class="background">
