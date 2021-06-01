@@ -6,7 +6,19 @@
         </div>
 
         <h3>{{ $t('needWebsiteMessages.whyCreatiview') }}</h3>
+        <div class="card">
+            <h4>{{ $t('needWebsiteMessages.madeToMeasure') }}</h4>
+            <p>{{ $t('needWebsiteMessages.madeToMeasureMessage1') }}</p>
+            <p>{{ $t('needWebsiteMessages.madeToMeasureMessage2') }}</p>
+            <p>{{ $t('needWebsiteMessages.madeToMeasureMessage3') }}</p>
+        </div>
+
         <div class="cards">
+            <div class="card">
+                <h4>{{ $t('needWebsiteMessages.concentrate') }}</h4>
+                <p>{{ $t('needWebsiteMessages.concentrateMessage1') }}</p>
+                <p>{{ $t('needWebsiteMessages.concentrateMessage2') }}</p>
+            </div>
             <div class="card">
                 <h4>{{ $t('needWebsiteMessages.singlePointOfContact') }}</h4>
                 <p>{{ $t('needWebsiteMessages.singlePointOfContactMessage1') }}</p>
@@ -14,12 +26,6 @@
                     <router-link :to="{name: 'Presentation'}"
                        target="_blank">{{ $t('needWebsiteMessages.singlePointOfContactMessage3') }}</router-link>
                     {{ $t('needWebsiteMessages.singlePointOfContactMessage4') }}</p>
-            </div>
-
-            <div class="card">
-                <h4>{{ $t('needWebsiteMessages.madeToMeasure') }}</h4>
-                <p>{{ $t('needWebsiteMessages.madeToMeasureMessage1') }}</p>
-                <p>{{ $t('needWebsiteMessages.madeToMeasureMessage2') }}</p>
             </div>
 
             <div class="card">
@@ -47,6 +53,11 @@
                 <p>{{ $t('needWebsiteMessages.fairPriceMessage2') }}</p>
                 <p>{{ $t('needWebsiteMessages.fairPriceMessage3') }}</p>
             </div>
+        </div>
+
+        <div class="end">
+            <p>{{ $t('needWebsiteMessages.subtitle') }}</p>
+            <router-link class="contactMe" :to="{name:'contact'}">{{ $t('needWebsiteMessages.contact') }}</router-link>
         </div>
 
         <h3>Mes projets</h3>
@@ -135,6 +146,7 @@ h3 {
     color: #005082;
     font-size: x-large;
     font-weight: 300;
+    margin-bottom: 10px;
 }
 
 h4{
