@@ -13,6 +13,14 @@ export default {
             followMe: 'Me suivre',
             explore: 'Explorer',
             legal: 'Légale',
+            catchPhraseBegin: 'Je vous aide à ',
+            catchPhraseUnderstand: 'comprendre ',
+            catchPhraseAnd: 'et ',
+            catchPhraseDevelop: 'développer ',
+            catchPhraseLa: 'la ',
+            catchPhraseWebSolution: 'solution web ',
+            catchPhraseEnd: 'qui vous convient.',
+            catchButtonSpeak: 'Parlons de votre projet'
         }
     },
     en: {
@@ -28,7 +36,15 @@ export default {
             contactMe: 'Contact me',
             followMe: 'Follow me',
             explore: 'Explore',
-            legal: 'Legal'
+            legal: 'Legal',
+            catchPhraseBegin: 'I help you ',
+            catchPhraseUnderstand: 'understand ',
+            catchPhraseAnd: 'and ',
+            catchPhraseDevelop: 'develop ',
+            catchPhraseLa: 'the ',
+            catchPhraseWebSolution: 'web solution ',
+            catchPhraseEnd: 'that suits you.',
+            catchButtonSpeak: 'Let\'s talk about your project'
         }
     }
 }

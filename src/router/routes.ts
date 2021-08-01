@@ -4,13 +4,14 @@ import CvGallery from "@/views/CvGallery.vue";
 import CvAddGallery from "@/views/CvAddGallery.vue";
 import CvDetailGallery from "@/views/CvDetailGallery.vue";
 import CvAskingOriginal from "@/views/CvAskingOriginal.vue";
-import CvNeedWebsite from "@/views/CvNeedWebsite.vue";
 import CvContact from "@/views/CvContact.vue";
 import CvTermsOfUse from "@/views/CvTermsOfUse.vue";
 import CvAboutMe from "@/views/CvAboutMe.vue";
 import CvCredits from "@/views/CvCredits.vue";
 import CvPresentation from "@/components/CvPresentation.vue";
 import CvSkills from "@/components/CvSkills.vue";
+import CvTalk from "@/views/CvTalk.vue";
+import CvProject from "@/views/CvProject.vue";
 
 export default [
     {
@@ -62,11 +63,19 @@ export default [
         }
     },
     {
-        path: '/needWebsite',
-        name: 'needWebsite',
-        component: CvNeedWebsite,
+        path: '/talk',
+        name: 'talk',
+        component: CvTalk,
         meta: {
-            title: 'Need a website - Creatiview'
+            title: 'Let\'s talk - Creatiview'
+        }
+    },
+    {
+        path: '/project',
+        name: 'project',
+        component: CvProject,
+        meta: {
+            title: 'Projects - Creatiview'
         }
     },
     {

@@ -5,10 +5,20 @@
                 <CvTextSlogant class="svgLogo"/>
                 <p>Website Creation <span class="orange">&</span> Full Stack Development</p>
             </div>
-            <div class="mainActions">
-                <router-link to="/aboutMe/presentation">{{$t('homeMessage.aboutMe')}}</router-link>
-                <router-link to="/needWebsite">{{$t('homeMessage.needAWebsite')}}</router-link>
-                <router-link to="/gallery">{{$t('homeMessage.myPictures')}}</router-link>
+            <div class="catchBlock">
+                <p class="catchPhrase">
+                    {{$t('homeMessage.catchPhraseBegin')}}
+                    <span class="orange">{{$t('homeMessage.catchPhraseUnderstand')}}</span>
+                    {{$t('homeMessage.catchPhraseAnd')}}
+                    <span class="orange">{{$t('homeMessage.catchPhraseDevelop')}}</span>
+                    {{$t('homeMessage.catchPhraseLa')}}
+                    <span class="orange">{{$t('homeMessage.catchPhraseWebSolution')}}</span>
+                    {{$t('homeMessage.catchPhraseEnd')}}
+                </p>
+                <div class="catchButtons">
+                    <router-link to="/talk" class="catchButtonSpeak">{{$t('homeMessage.catchButtonSpeak')}}</router-link>
+                    <router-link to="/gallery" class="catchButtonPictures">{{$t('homeMessage.myPictures')}}</router-link>
+                </div>
             </div>
         </div>
         <div class="background">
@@ -43,33 +53,9 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
+
         z-index: 2;
         margin-top: 15vh;
-    }
-
-    .mainActions{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 100px;
-        width: 100%;
-    }
-
-    .mainActions > a{
-        width: 80%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        color: #005082;
-        border: 1px solid #005082;
-        text-decoration: none;
-        padding: 1vh 2vw 1vh 2vw;
-        background-color: rgba(255, 255, 255, .8);
-        font-size: x-large;
-        font-weight: 300;
-        margin-bottom: 20px;
     }
 
     .titleAndSlogan{
@@ -116,7 +102,60 @@
         z-index: 1;
         width: 100vw;
         height: 100%;
-        background-color: rgba(255, 255, 255, 0.5);
+        background-color: rgba(255, 255, 255, 0.7);
+    }
+
+    .catchBlock{
+        display: flex;
+        flex-direction: column;
+        margin: 30px 10px 20px 10px;
+    }
+
+    .catchPhrase{
+        font-weight: 300;
+        font-size: large;
+        text-align: left;
+        color: #005082;
+    }
+
+    .catchPhrase .orange{
+        display: inline-block;
+        padding: 2px;
+        margin-top: 1px;
+        margin-bottom: 1px;
+        color: #FFA41B;
+        background-color: #005082;
+    }
+
+    .catchButtons{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 20px;
+    }
+
+    .catchButtons a {
+        text-decoration: none;
+        border: 1px solid #005082;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .catchButtonSpeak{
+        display: block;
+        font-weight: 300;
+        font-size: large;
+        color: #005082;
+        background-color: rgba(255, 164, 27, 0.9);
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .catchButtonPictures{
+        color: #005082;
+        font-weight: 300;
+        background-color: rgba(255, 255, 255, 0.3);
+        padding: 7px;
     }
 
     @media(min-width: 900px){
@@ -125,26 +164,29 @@
         }
 
         .content{
-            margin-top: 20vh;
+            margin-top: 1vh;
         }
 
-        .mainActions{
-            width: 90%;
+        .catchBlock{
+            margin-top: 100px;
+            margin-left: 5%;
         }
 
+        .catchPhrase{
+            font-size: xx-large;
+        }
 
-        .mainActions > a{
+        .catchButtonSpeak{
+            font-size: xx-large;
+        }
+
+        .catchButtonPictures{
             font-size: x-large;
-            width: 25%;
         }
+
 
         .titleAndSlogan p {
-            font-size: 50px;
-        }
-
-        .mainActions{
-            flex-direction: row;
-            justify-content: space-between;
+            font-size: 70px;
         }
     }
 
